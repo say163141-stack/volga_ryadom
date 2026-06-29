@@ -111,57 +111,68 @@
         .glass-panel { backdrop-filter: blur(12px); background-color: rgba(255, 255, 255, 0.9); }
         .day-selected { background-color: #006184 !important; color: white !important; border-radius: 8px; }
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+        
+        /* Animation classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.21, 0.45, 0.32, 0.9);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
-<!-- Header (Shared Component TopNavBar) -->
+<!-- Header -->
 <nav class="bg-surface/90 backdrop-blur-md text-primary sticky top-0 z-50 shadow-sm">
 <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
-<div class="text-headline-sm font-headline-sm font-bold text-river-deep tracking-tight">ВОЛГА РЯДОМ</div>
+<a class="text-headline-sm font-headline-sm font-bold text-river-deep tracking-tight" href="index.html">ВОЛГА РЯДОМ</a>
 <div class="hidden md:flex gap-8 items-center">
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="#">Наши домики</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="#">Развлечения</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="#">Отзывы</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="#">Контакты</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="cabins.html">Наши домики</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="activities.html">Чем заняться</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="reviews.html">Отзывы</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="contacts.html">Контакты</a>
 </div>
 <div class="flex items-center gap-4">
-<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-caps text-label-caps shadow-sm hover:scale-95 transition-all duration-150">Забронировать</button>
-<span class="material-symbols-outlined md:hidden cursor-pointer">menu</span>
+<a class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-caps text-label-caps shadow-sm hover:scale-95 transition-all duration-150 inline-block" href="booking.html">Забронировать</a>
+<span class="material-symbols-outlined md:hidden cursor-pointer" id="mobile-menu-btn">menu</span>
 </div>
 </div>
 </nav>
-<!-- Hero Section with Background -->
+<!-- Hero Section -->
 <section class="relative min-h-[60vh] flex items-center justify-center pt-20">
 <div class="absolute inset-0 z-0">
 <div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDlIycdDgglYoGuTwwzE0ul7Psd2ucAv1PlsiJcC4QL-e_VOosmQlHzmhohto3afxsWzI9CJx7QO2_1vZG0prlrwvGeLBcIndMoM1j-8WO5n3JZA6zUtoPGr59xprmnOpE4BDBoIAuqfiL-JpNlJWthvjXheuZlnF2JNpYAfIERnuoDKCRj_JrJwx0-i71TNpX-5iRqxs3uJ6g6niBbdgMIbhrAITUi0ygd0aSJtZGVNZI3RllHdf_zl4NqcENZR5KKJxt8grp0qv-h')"></div>
 <div class="absolute inset-0 booking-gradient"></div>
 </div>
-<div class="relative z-10 text-center text-on-primary px-margin-mobile">
+<div class="relative z-10 text-center text-on-primary px-margin-mobile reveal">
 <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-4">Забронируйте отдых</h1>
 <p class="text-body-lg max-w-2xl mx-auto opacity-90">Просто следуйте шагам бронирования, чтобы закрепить за собой премиальный домик на берегу Волги.</p>
 </div>
 </section>
 <!-- Main Booking Canvas -->
-<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop -mt-24 relative z-20 pb-section-gap">
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop -mt-24 relative z-20 pb-section-gap reveal">
 <div class="bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden">
 <!-- Step Progress Indicator -->
 <div class="border-b border-surface-variant px-8 py-6 hidden md:flex justify-between items-center bg-surface-bright">
-<div class="flex items-center gap-3 text-primary step-indicator">
+<div class="flex items-center gap-3 text-primary step-indicator" data-step="1">
 <span class="w-8 h-8 rounded-full border-2 border-primary flex items-center justify-center font-bold">1</span>
 <span class="font-label-caps text-label-caps">Даты</span>
 </div>
 <div class="h-[2px] bg-surface-variant flex-grow mx-4"></div>
-<div class="flex items-center gap-3 text-outline step-indicator">
+<div class="flex items-center gap-3 text-outline step-indicator" data-step="2">
 <span class="w-8 h-8 rounded-full border-2 border-outline flex items-center justify-center font-bold">2</span>
 <span class="font-label-caps text-label-caps">Домик</span>
 </div>
 <div class="h-[2px] bg-surface-variant flex-grow mx-4"></div>
-<div class="flex items-center gap-3 text-outline step-indicator">
+<div class="flex items-center gap-3 text-outline step-indicator" data-step="3">
 <span class="w-8 h-8 rounded-full border-2 border-outline flex items-center justify-center font-bold">3</span>
 <span class="font-label-caps text-label-caps">Доп. услуги</span>
 </div>
 <div class="h-[2px] bg-surface-variant flex-grow mx-4"></div>
-<div class="flex items-center gap-3 text-outline step-indicator">
+<div class="flex items-center gap-3 text-outline step-indicator" data-step="4">
 <span class="w-8 h-8 rounded-full border-2 border-outline flex items-center justify-center font-bold">4</span>
 <span class="font-label-caps text-label-caps">Оплата</span>
 </div>
@@ -170,7 +181,6 @@
 <!-- Step 1: Calendar & Date Selection -->
 <div class="space-y-8" id="step-1">
 <div class="flex flex-col md:flex-row gap-12">
-<!-- Calendar Placeholder Interface -->
 <div class="flex-grow">
 <div class="flex items-center justify-between mb-6">
 <h2 class="font-headline-md text-headline-md text-river-deep">Выберите даты</h2>
@@ -189,7 +199,6 @@
 <div class="py-2 opacity-50">СБ</div>
 </div>
 <div class="grid grid-cols-7 gap-1 text-center">
-<!-- Calendar Grid (Example days) -->
 <div class="p-4 text-outline-variant">28</div>
 <div class="p-4 text-outline-variant">29</div>
 <div class="p-4 text-outline-variant">30</div>
@@ -213,7 +222,6 @@
 <div class="p-4 hover:bg-surface-container cursor-pointer rounded-lg transition-all calendar-day">18</div>
 </div>
 </div>
-<!-- Summary Sidebar -->
 <div class="w-full md:w-80 bg-surface-container-low p-8 rounded-xl space-y-6">
 <h3 class="font-headline-sm text-headline-sm">Детали поездки</h3>
 <div class="space-y-4">
@@ -241,7 +249,6 @@
 <div class="hidden space-y-8" id="step-2">
 <h2 class="font-headline-md text-headline-md text-river-deep">Выберите вариант размещения</h2>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<!-- Cabin Card 1 -->
 <div class="group border border-surface-variant rounded-xl overflow-hidden hover:shadow-xl transition-all cursor-pointer ring-2 ring-transparent hover:ring-primary">
 <div class="h-64 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCNve0feDIPRBiLkPFlInRZRuxXdJj54yHM5iSG5PCp3lGMp1oUxilYjZ_xM-CwBGXeO64ISHAF4TT8iHXodGSmfXc9DFZUH1qudZ651O44TlG3IcQbtEtBnGZf-0ylyfxyoBtRsdkdaOr64vPmpebnAFoKC1evhwBUMbR6mih1ijKLMekjefg7EpmUS0YacjqIPCyiQ9IJQ-naYgDlBqqtbfmMxsHrH39lXDGmRE-ZAdoDBd5rgFHKEJKghqXA7VJFD05xcXHNo2fG')"></div>
 <div class="p-6 bg-white">
@@ -257,7 +264,6 @@
 </div>
 </div>
 </div>
-<!-- Cabin Card 2 -->
 <div class="group border border-primary/50 bg-primary/5 rounded-xl overflow-hidden shadow-xl ring-2 ring-primary">
 <div class="h-64 bg-cover bg-center relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAa3Qw0c7-5EbPKUubzqQ1gUUam2upOD16fh9iH0QTJUUBKyGwbCdW75iujNzw3-URW1c3qsgjodH0WLEV_V1RinZHGjNvP5YsBCqqu-uQMWcw3Gl9rhIOkikU5YnA9NJeDlqZvjmv6ieJ6HNHv-zS68n7fuVootD55UtG-n1p1FAIbvH8IDgFFEM7sU1SgkylKpxR4FhUrs83pynO0uSMaJlu43RuFGcoyucoRQ5s-URHeLVfbVLWQSNP7iYOGWdRal1lU-XQxqoMc')">
 <div class="absolute top-4 left-4 bg-primary text-on-primary px-4 py-1 rounded-full text-sm font-bold shadow-lg">Выбрано</div>
@@ -284,7 +290,6 @@
 <div class="hidden space-y-8" id="step-3">
 <h2 class="font-headline-md text-headline-md text-river-deep">Добавьте впечатлений</h2>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<!-- Add-on 1 -->
 <div class="p-6 border border-surface-variant rounded-xl flex flex-col items-center text-center space-y-4 hover:border-primary transition-colors cursor-pointer group">
 <span class="material-symbols-outlined text-4xl text-wood-bark group-hover:scale-110 transition-transform">hot_tub</span>
 <h5 class="font-bold">Кедровая баня</h5>
@@ -292,7 +297,6 @@
 <span class="text-primary font-bold">+2500₽</span>
 <button class="w-full py-2 border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-all">Добавить</button>
 </div>
-<!-- Add-on 2 -->
 <div class="p-6 border-2 border-primary bg-primary/5 rounded-xl flex flex-col items-center text-center space-y-4">
 <span class="material-symbols-outlined text-4xl text-river-deep scale-110">kayaking</span>
 <h5 class="font-bold">Аренда SUP-борда</h5>
@@ -300,7 +304,6 @@
 <span class="text-primary font-bold">+1500₽</span>
 <button class="w-full py-2 bg-primary text-on-primary rounded-lg shadow-sm">Добавлено</button>
 </div>
-<!-- Add-on 3 -->
 <div class="p-6 border border-surface-variant rounded-xl flex flex-col items-center text-center space-y-4 hover:border-primary transition-colors cursor-pointer group">
 <span class="material-symbols-outlined text-4xl text-pine-green group-hover:scale-110 transition-transform">restaurant</span>
 <h5 class="font-bold">Фермерский завтрак</h5>
@@ -314,7 +317,7 @@
 <button class="px-12 py-4 bg-primary text-on-primary font-bold rounded-lg shadow-md hover:translate-y-[-2px] transition-all" onclick="nextStep(4)">Далее: Оплата</button>
 </div>
 </div>
-<!-- Step 4: Checkout & Payment -->
+<!-- Step 4: Checkout -->
 <div class="hidden grid grid-cols-1 md:grid-cols-2 gap-12" id="step-4">
 <div class="space-y-6">
 <h2 class="font-headline-md text-headline-md text-river-deep">Информация о госте</h2>
@@ -358,7 +361,6 @@
 <span class="font-bold">К оплате</span>
 <span class="font-bold text-primary">24 000₽</span>
 </div>
-<!-- Payment Gateway Simulation -->
 <div class="pt-4 space-y-3">
 <button class="w-full bg-on-background text-on-primary py-4 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
 <span class="material-symbols-outlined">contactless</span>
@@ -376,26 +378,26 @@
 </div>
 </div>
 </main>
-<!-- Footer (Shared Component) -->
-<footer class="bg-forest-shadow text-soft-sand border-t border-white/10 mt-section-gap">
+<!-- Footer -->
+<footer class="bg-forest-shadow text-soft-sand border-t border-white/10 mt-section-gap reveal">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
 <div class="space-y-4">
-<div class="text-headline-md font-headline-md text-soft-sand">ВОЛГА РЯДОМ</div>
+<a class="text-headline-md font-headline-md text-soft-sand block" href="index.html">ВОЛГА РЯДОМ</a>
 <p class="text-body-md opacity-80">Природа без компромиссов. Премиальный глэмпинг на берегах великой Волги.</p>
 </div>
 <div class="space-y-4">
 <h4 class="font-label-caps text-label-caps tracking-widest text-warm-glow">УЗНАТЬ БОЛЬШЕ</h4>
 <ul class="space-y-2 text-body-md">
-<li><a class="text-soft-sand/80 hover:text-white hover:translate-x-1 duration-200 inline-block transition-all" href="#">Политика конфиденциальности</a></li>
-<li><a class="text-soft-sand/80 hover:text-white hover:translate-x-1 duration-200 inline-block transition-all" href="#">Условия использования</a></li>
-<li><a class="text-soft-sand/80 hover:text-white hover:translate-x-1 duration-200 inline-block transition-all" href="#">FAQ</a></li>
+<li><a class="text-soft-sand/80 hover:text-white hover:translate-x-1 duration-200 inline-block transition-all" href="privacy.html">Политика конфиденциальности</a></li>
+<li><a class="text-soft-sand/80 hover:text-white hover:translate-x-1 duration-200 inline-block transition-all" href="terms.html">Условия использования</a></li>
+<li><a class="text-soft-sand/80 hover:text-white hover:translate-x-1 duration-200 inline-block transition-all" href="faq.html">FAQ</a></li>
 </ul>
 </div>
 <div class="space-y-4">
 <h4 class="font-label-caps text-label-caps tracking-widest text-warm-glow">КОНТАКТЫ</h4>
 <ul class="space-y-2 text-body-md">
-<li><a class="text-soft-sand/80 hover:text-white hover:translate-x-1 duration-200 inline-block transition-all" href="#">Поддержка в Telegram</a></li>
-<li><a class="text-soft-sand/80 hover:text-white hover:translate-x-1 duration-200 inline-block transition-all" href="#">Карта проезда</a></li>
+<li><a class="text-soft-sand/80 hover:text-white hover:translate-x-1 duration-200 inline-block transition-all" href="https://t.me/volgaryadom">Поддержка в Telegram</a></li>
+<li><a class="text-soft-sand/80 hover:text-white hover:translate-x-1 duration-200 inline-block transition-all" href="contacts.html">Карта проезда</a></li>
 </ul>
 </div>
 <div class="space-y-4">
@@ -410,46 +412,71 @@
 </div>
 </footer>
 <script>
-        function nextStep(stepNumber) {
-            // Hide all steps
-            const steps = [1, 2, 3, 4];
-            steps.forEach(s => {
-                const el = document.getElementById(`step-${s}`);
-                if(el) el.classList.add('hidden');
-            });
-            
-            // Show active step
-            const currentStepEl = document.getElementById(`step-${stepNumber}`);
-            if(currentStepEl) currentStepEl.classList.remove('hidden');
-            
-            // Update UI indicators
-            const indicators = document.querySelectorAll('.step-indicator');
-            indicators.forEach((ind, index) => {
-                const circle = ind.querySelector('span:first-child');
-                if (index < stepNumber) {
-                    ind.classList.remove('text-outline');
-                    ind.classList.add('text-primary');
-                    if(circle) circle.classList.replace('border-outline', 'border-primary');
-                } else {
-                    ind.classList.add('text-outline');
-                    ind.classList.remove('text-primary');
-                    if(circle) circle.classList.replace('border-primary', 'border-outline');
-                }
-            });
+    // Intersection Observer for animations
+    const revealCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    };
 
-            // Smooth scroll to top of booking component
-            window.scrollTo({
-                top: document.querySelector('main').offsetTop - 100,
-                behavior: 'smooth'
-            });
-        }
+    const revealObserver = new IntersectionObserver(revealCallback, {
+        threshold: 0.15
+    });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Booking Flow Logic
+    function nextStep(stepNumber) {
+        // Hide all steps
+        const steps = [1, 2, 3, 4];
+        steps.forEach(s => {
+            const el = document.getElementById(`step-${s}`);
+            if(el) el.classList.add('hidden');
+        });
         
-        // Micro-interaction for calendar
-        document.querySelectorAll('.calendar-day').forEach(day => {
-            day.addEventListener('click', function() {
+        // Show active step
+        const currentStepEl = document.getElementById(`step-${stepNumber}`);
+        if(currentStepEl) currentStepEl.classList.remove('hidden');
+        
+        // Update UI indicators
+        const indicators = document.querySelectorAll('.step-indicator');
+        indicators.forEach((ind) => {
+            const indStep = parseInt(ind.getAttribute('data-step'));
+            const circle = ind.querySelector('span:first-child');
+            if (indStep <= stepNumber) {
+                ind.classList.remove('text-outline');
+                ind.classList.add('text-primary');
+                if(circle) circle.classList.replace('border-outline', 'border-primary');
+            } else {
+                ind.classList.add('text-outline');
+                ind.classList.remove('text-primary');
+                if(circle) circle.classList.replace('border-primary', 'border-outline');
+            }
+        });
+
+        // Smooth scroll to top of booking component
+        window.scrollTo({
+            top: document.querySelector('main').offsetTop - 100,
+            behavior: 'smooth'
+        });
+    }
+    
+    // Calendar Toggle Interaction
+    document.querySelectorAll('.calendar-day').forEach(day => {
+        day.addEventListener('click', function() {
+            if (!this.classList.contains('text-outline-variant')) {
                 this.classList.toggle('day-selected');
                 this.classList.toggle('shadow-lg');
-            });
+            }
         });
-    </script>
+    });
+
+    // Simple Mobile Menu Toggle
+    document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+        alert('Мобильное меню в разработке');
+    });
+</script>
 </body></html>

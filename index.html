@@ -118,23 +118,32 @@
             background-image: radial-gradient(circle at 2px 2px, rgba(0, 95, 130, 0.05) 1px, transparent 0);
             background-size: 40px 40px;
         }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-background text-on-surface font-body-md selection:bg-primary selection:text-white">
 <!-- TopNavBar -->
 <header class="docked full-width top-0 sticky z-50 bg-surface/90 backdrop-blur-md shadow-sm">
 <nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
-<div class="text-headline-sm font-headline-sm font-bold text-river-deep tracking-tight">ВОЛГА РЯДОМ</div>
+<a class="text-headline-sm font-headline-sm font-bold text-river-deep tracking-tight" href="SCREEN_15">ВОЛГА РЯДОМ</a>
 <ul class="hidden md:flex gap-8 items-center">
-<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="#cabins">Домики</a></li>
-<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="#activities">Развлечения</a></li>
-<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="#about">Отзывы</a></li>
-<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="#contacts">Контакты</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="SCREEN_22">Домики</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="SCREEN_19">Чем заняться</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="#reviews">Отзывы</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="SCREEN_17">Контакты</a></li>
 </ul>
 <div class="flex items-center gap-4">
-<button class="bg-primary text-white px-6 py-2.5 rounded-lg text-label-caps font-label-caps active:scale-95 transition-all duration-150 hover:bg-primary-container shadow-md">
+<a class="bg-primary text-white px-6 py-2.5 rounded-lg text-label-caps font-label-caps active:scale-95 transition-all duration-150 hover:bg-primary-container shadow-md flex items-center justify-center" href="SCREEN_31">
                     Забронировать
-                </button>
+                </a>
 <button class="md:hidden text-primary">
 <span class="material-symbols-outlined" data-icon="menu">menu</span>
 </button>
@@ -143,9 +152,9 @@
 </header>
 <main class="bg-pattern">
 <!-- Hero Section -->
-<section class="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden">
+<section class="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden reveal">
 <div class="absolute inset-0 z-0">
-<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCQI204AWvIZYRIqNj1Q8216OI0xv44p8rRcwfHlWDZa3FAtY6cplvQHSeemfd63s5hi7oTrFnQnO4k124LTd5MIaagCS5g8Qbzdxmu_ul5d04ceojmAVGrWL_AqVteTIOr2t7wg8nMk0j2Ov6HMpDkIWAujCN8w0iHfPZYYYS3MCA-Sg0SFbhXO9B91o8HSXvxGMC8ckllz_DiZzoproItEFR1zIVGF550arnG629TL_8BbB2cdiCRz0832bl75Vjqcqagz9q2rMWB')"></div>
+<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDJfX6bMOJfAIpuir2sbtyiktnrRxO0mlOQun3OFwr4nfxUoyFPHJDFKFAEPk-L-0CKG-3qqC-Sq8Qpr1xudrHX2WJD0ZtQ2yotUOHNOTer-jX4Yazvux_0DlSojR2ypvSXjBBrUT-c9LuP4LfkrajP9UsFx1dDKhPPqmB1uEJ81ZYyKqQ3QT4tG2T7n_qGt17tjrOUxwGk1TJs_s1t8SkfPZH7ZTFfD4nRhsHuBwzRG5Ng0KWFpTQpOT8TEMjPEYXXCoRbNAqk56cP')"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/20"></div>
 </div>
 <div class="relative z-10 w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-white md:text-on-surface">
@@ -153,14 +162,14 @@
 <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6 text-river-deep">Отдых на берегу Волги с городским комфортом</h1>
 <p class="font-body-lg text-body-lg mb-8 text-on-surface-variant">Премиальный глэмпинг: 4 уютных домика, бассейн и тишина соснового леса в шаге от великой реки.</p>
 <div class="flex flex-col sm:flex-row gap-4">
-<a class="bg-primary text-white px-8 py-4 rounded-lg font-label-caps text-center hover:shadow-lg hover:-translate-y-1 transition-all glow-effect" href="#booking">Забронировать</a>
-<a class="bg-white/80 text-forest-shadow px-8 py-4 rounded-lg font-label-caps text-center border border-outline-variant hover:bg-white transition-all" href="#activities">Узнать больше</a>
+<a class="bg-primary text-white px-8 py-4 rounded-lg font-label-caps text-center hover:shadow-lg hover:-translate-y-1 transition-all glow-effect" href="SCREEN_31">Забронировать</a>
+<a class="bg-white/80 text-forest-shadow px-8 py-4 rounded-lg font-label-caps text-center border border-outline-variant hover:bg-white transition-all" href="SCREEN_19">Узнать больше</a>
 </div>
 </div>
 </div>
 </section>
 <!-- Cabins Section -->
-<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="cabins">
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal" id="cabins">
 <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
 <div>
 <span class="text-primary font-label-caps text-label-caps tracking-widest uppercase mb-2 block">Проживание</span>
@@ -174,8 +183,8 @@
 <!-- Cabin Card 1 -->
 <div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-outline-variant/30">
 <div class="relative h-72 overflow-hidden">
-<img alt="Интерьер стандартного домика" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXwH10OdSmKAOyy6mZFgkS2wNYk9jdUpt32m6xx8nMuvgp80PIUZGEiN1ctvFyCae2KOCMGt4VU7m5RYVCLZgP4EVFXjplvZsy8ATJNkWvdl7PD-s8pAW0Vv_DKbfF_0UHqy-7caIEI3mUrzEfcInqXN8UQHanlMLT2swH8ff25jAEWWpIwg1QQIktCa2PEJX_iAS0c5pNmbksjRJJExGGJJg9fTF3LlxsR29z3lnW5t8ym6ikFOYg9oSCm1UhRcUEsQLYDmZ0RBH7"/>
-<div class="absolute top-4 left-4 bg-warm-glow text-forest-shadow px-3 py-1 rounded-full text-label-caps font-label-caps">от 7000₽</div>
+<img alt="Интерьер стандартного домика" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmgdbiJ4X6rhu2xsimkR7WK2Q3dkkfIIAdHmpIugMX0UAz0xlo6hpLYnjVLR-O6ATSGTGbKIUI0vzuahdm9Ov0CVMzhAlewkzW4_nszwAqxOHdrCmSdtJWJyvarDgC1Y5EEn1WI7-M3aWOfPtxb0PjcKxmXU9bXDih15HkspWD0SDXDilpzYmpnMTwQ1XORpeNg8dowjbNibXESftnx1uQB41i_J4PJlAkh9V-42ig5bq5HZvCjavE1GMhq_sKydqmqSL7IHZRFqek"/>
+<div class="absolute top-4 left-4 bg-warm-glow text-forest-shadow px-3 py-1 rounded-full text-label-caps font-label-caps">От 7000₽</div>
 </div>
 <div class="p-6">
 <div class="flex justify-between items-center mb-4">
@@ -187,18 +196,18 @@
 </div>
 </div>
 <p class="text-on-surface-variant mb-6">Идеально для пары. Панорамный вид на склон и реку, уютная терраса и все удобства отеля в лесу.</p>
-<button class="w-full py-3 rounded-lg border border-primary text-primary font-label-caps hover:bg-primary hover:text-white transition-all">Подробнее и бронь</button>
+<a class="block w-full py-3 rounded-lg border border-primary text-primary font-label-caps text-center hover:bg-primary hover:text-white transition-all" href="SCREEN_22">Подробнее и бронирование</a>
 </div>
 </div>
 <!-- Cabin Card 2 -->
 <div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-outline-variant/30">
 <div class="relative h-72 overflow-hidden">
-<img alt="Семейный премиум домик" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2jaQYUepDkaTFMHvbTULrT2D2t7FpRD36aMLl87j9Rjxe8TtWGFYLbVwZz9AQSaEinB1WnMNY6uthnNnzkFxa062Ye1HYTkQWNjIWZX4NH8tCLEaWDBgyTsUqiJrojChxdZzdgpEh2lqZqL2oSJg32vaeuzOteZE9Y75C03DBNEwfy7-Umjf78gpq6ZXryEJySXiZh-yM4DmAle5BxjdxC5ePRLPQJclbq1mcVVoZGZ6rRbTDF1auiCOCBWIcRSEFqXpL4HLSpRbB"/>
-<div class="absolute top-4 left-4 bg-warm-glow text-forest-shadow px-3 py-1 rounded-full text-label-caps font-label-caps">от 9000₽</div>
+<img alt="Семейный домик премиум класса" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6a13tMqtS-NAR5_Y0M9V9s0jsjew6hQdYZNPzxdfhk1_z9WnpapsOCn_aqkq4wpMnoZa5WIQ3qRI5i5XYqrIUaEdC8Fi57zVEgUStATgCyIYwFJcmJwCqAyAc0PBYiXMttDkdono2D4nDoBmRfVNUvxQ2F4F-IR950Pif2lIKUBMDgFPhFsxOO1y52FV-5bLUH1YDtTUw3KwnSuDVABYXT8aGuyC3HfpdeJhzLlTzwGg1duzTF92XczDfAAtvSR3AE_F7o_xIHmJS"/>
+<div class="absolute top-4 left-4 bg-warm-glow text-forest-shadow px-3 py-1 rounded-full text-label-caps font-label-caps">От 9000₽</div>
 </div>
 <div class="p-6">
 <div class="flex justify-between items-center mb-4">
-<h3 class="font-headline-sm text-headline-sm text-river-deep">Семейный Премиум</h3>
+<h3 class="font-headline-sm text-headline-sm text-river-deep">Премиум Семейный</h3>
 <div class="flex gap-2">
 <span class="material-symbols-outlined text-pine-green text-[20px]" data-icon="family_restroom">family_restroom</span>
 <span class="material-symbols-outlined text-pine-green text-[20px]" data-icon="kitchen">kitchen</span>
@@ -206,13 +215,13 @@
 </div>
 </div>
 <p class="text-on-surface-variant mb-6">Просторный вариант для семьи до 4-х человек. Увеличенная терраса и премиальная отделка деревом.</p>
-<button class="w-full py-3 rounded-lg border border-primary text-primary font-label-caps hover:bg-primary hover:text-white transition-all">Подробнее и бронь</button>
+<a class="block w-full py-3 rounded-lg border border-primary text-primary font-label-caps text-center hover:bg-primary hover:text-white transition-all" href="SCREEN_22">Подробнее и бронирование</a>
 </div>
 </div>
 </div>
 </section>
 <!-- Activities Grid (Bento Style) -->
-<section class="bg-forest-shadow py-section-gap text-white" id="activities">
+<section class="bg-forest-shadow py-section-gap text-white reveal" id="activities">
 <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <div class="mb-12 text-center">
 <h2 class="font-headline-md text-headline-md mb-4">Развлечения и отдых</h2>
@@ -223,7 +232,7 @@
 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAcZaELePpny0fwPK4QN2NYzGd5dIHaOgxZqpE9eqL5tvFHfi727Ty86RFiN-rYthOUKLws9lsdKwa92eFtVy0UsNaSl5WEqDfkABRbKdnBFM1zDRrfkAGrV5AZqb1wS80G0SgeYaAod_HNpaXxHDQXnr81RZ858JSPN8lYooCa1LnBFYwi-sMMMBVvkClRpFf43QuhGHq1hqWOsjnhoOOtVrqXkEy4bI9VUVXxOE5F-W0ID2DRZNXgswJ2NBy-hEIpgbe3bqw-D-hI')"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
 <div class="absolute bottom-0 left-0 p-8">
-<span class="bg-warm-glow text-forest-shadow px-3 py-1 rounded-full text-[12px] font-bold mb-3 inline-block">ПОПУЛЯРНО</span>
+<span class="bg-warm-glow text-forest-shadow px-3 py-1 rounded-full text-[12px] font-bold mb-3 inline-block">ГОРЯЧЕЕ ПРЕДЛОЖЕНИЕ</span>
 <h3 class="text-headline-sm font-headline-sm mb-2">Баня на дровах</h3>
 <p class="text-soft-sand/80">5000₽ за 2 часа релакса. Парная с видом на лес.</p>
 </div>
@@ -254,7 +263,7 @@
 </div>
 </section>
 <!-- CTA Section -->
-<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal">
 <div class="bg-river-deep rounded-3xl p-12 text-white relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12">
 <div class="relative z-10 max-w-xl">
 <h2 class="text-display-lg-mobile md:text-headline-md font-headline-md mb-6">Готовы к перезагрузке?</h2>
@@ -295,19 +304,20 @@
 <footer class="bg-forest-shadow text-soft-sand py-12 border-t border-white/10">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <div class="col-span-1 md:col-span-2">
-<div class="text-headline-md font-headline-md text-soft-sand mb-6">ВОЛГА РЯДОМ</div>
+<a class="text-headline-md font-headline-md text-soft-sand mb-6 block" href="SCREEN_15">ВОЛГА РЯДОМ</a>
 <p class="text-soft-sand/60 max-w-sm mb-8">Премиальный глэмпинг на берегу Волги. Место, где природа встречается с комфортом. Мы создаем пространство для вашего вдохновения.</p>
 <div class="flex gap-4">
 <a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-warm-glow hover:text-forest-shadow transition-all" href="#"><span class="material-symbols-outlined" data-icon="public">public</span></a>
-<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-warm-glow hover:text-forest-shadow transition-all" href="#"><span class="material-symbols-outlined" data-icon="mail">mail</span></a>
+<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-warm-glow hover:text-forest-shadow transition-all" href="mailto:info@volgaryadom.ru"><span class="material-symbols-outlined" data-icon="mail">mail</span></a>
 </div>
 </div>
 <div>
 <h4 class="text-label-caps font-label-caps text-white mb-6">Навигация</h4>
 <ul class="space-y-4">
-<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 inline-block" href="#">Политика конфиденциальности</a></li>
-<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 inline-block" href="#">Условия использования</a></li>
-<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 inline-block" href="#">Частые вопросы</a></li>
+<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 inline-block" href="SCREEN_22">Наши домики</a></li>
+<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 inline-block" href="SCREEN_19">Чем заняться</a></li>
+<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 inline-block" href="SCREEN_31">Забронировать</a></li>
+<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 inline-block" href="SCREEN_24">Политика конфиденциальности</a></li>
 </ul>
 </div>
 <div>
@@ -315,11 +325,11 @@
 <ul class="space-y-4">
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-warm-glow" data-icon="location_on">location_on</span>
-<span class="text-soft-sand/80">Тверская область, берег Волги</span>
+<a class="text-soft-sand/80 hover:text-white transition-colors" href="SCREEN_17">Тверская область, берег Волги</a>
 </li>
 <li class="flex items-center gap-3">
 <span class="material-symbols-outlined text-warm-glow" data-icon="phone">phone</span>
-<span class="text-soft-sand/80">+7 (900) 123-45-67</span>
+<a class="text-soft-sand/80 hover:text-white transition-colors" href="tel:+79001234567">+7 (900) 123-45-67</a>
 </li>
 </ul>
 </div>
@@ -329,25 +339,27 @@
         </div>
 </footer>
 <script>
-        // Simple scroll reveal
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                if (sectionTop < window.innerHeight * 0.8) {
-                    section.classList.add('opacity-100', 'translate-y-0');
-                    section.classList.remove('opacity-0', 'translate-y-10');
-                }
-            });
-        });
+        // Intersection Observer for reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-        // Initialize sections for animation
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('section').forEach((s, i) => {
-                if (i > 0) {
-                    s.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
                 }
             });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => observer.observe(el));
+            
+            // Immediate reveal for first section if visible
+            const firstSection = document.querySelector('section');
+            if (firstSection) firstSection.classList.add('active');
         });
     </script>
 </body></html>

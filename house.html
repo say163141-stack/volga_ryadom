@@ -3,7 +3,7 @@
 <html lang="ru"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Наши дома | ВОЛГА РЯДОМ</title>
+<title>Наши домики | ВОЛГА РЯДОМ</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -26,6 +26,17 @@
         @media (max-width: 768px) {
             .bento-item-lg, .bento-item-sm { grid-column: span 12; }
         }
+
+        /* Entrance Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 <script id="tailwind-config">
         tailwind.config = {
@@ -33,59 +44,59 @@
             theme: {
                 extend: {
                     "colors": {
-                        "outline-variant": "#bfc8cf",
-                        "surface-container-lowest": "#ffffff",
-                        "forest-shadow": "#2D391A",
-                        "on-secondary-container": "#546a2e",
                         "surface-container-low": "#f1f4f8",
-                        "soft-sand": "#F1E3D3",
-                        "on-primary": "#ffffff",
-                        "on-primary-container": "#f5faff",
-                        "on-tertiary-fixed-variant": "#623f18",
-                        "on-tertiary": "#ffffff",
-                        "wood-bark": "#8B5E3C",
-                        "tertiary-fixed": "#ffdcbd",
-                        "error-container": "#ffdad6",
-                        "surface-container-highest": "#e0e3e7",
-                        "surface-bright": "#f7fafd",
-                        "river-deep": "#005F82",
-                        "on-secondary": "#ffffff",
-                        "outline": "#6f787f",
-                        "tertiary": "#785229",
-                        "on-surface-variant": "#3f484e",
-                        "secondary-fixed-dim": "#b6d088",
-                        "on-error-container": "#93000a",
-                        "warm-glow": "#FFD166",
-                        "primary-fixed": "#c4e7ff",
-                        "tertiary-container": "#946a3f",
-                        "on-background": "#181c1f",
-                        "tertiary-fixed-dim": "#f0bd8b",
-                        "error": "#ba1a1a",
-                        "secondary-fixed": "#d2eca2",
-                        "on-tertiary-container": "#fff8f4",
-                        "inverse-surface": "#2d3134",
-                        "background": "#f7fafd",
-                        "surface-container": "#ebeef2",
-                        "on-primary-fixed-variant": "#004c69",
-                        "surface": "#f7fafd",
                         "secondary-container": "#cfe99f",
-                        "on-primary-fixed": "#001e2c",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#ebeef2",
+                        "secondary-fixed-dim": "#b6d088",
                         "inverse-primary": "#7cd0ff",
-                        "inverse-on-surface": "#eef1f5",
+                        "forest-shadow": "#2D391A",
                         "on-tertiary-fixed": "#2c1600",
-                        "primary": "#006184",
-                        "surface-dim": "#d7dade",
-                        "on-secondary-fixed-variant": "#394d14",
+                        "inverse-surface": "#2d3134",
                         "pine-green": "#4A5D23",
+                        "tertiary-fixed": "#ffdcbd",
+                        "on-surface": "#181c1f",
+                        "outline-variant": "#bfc8cf",
+                        "secondary": "#50652a",
+                        "secondary-fixed": "#d2eca2",
                         "on-error": "#ffffff",
                         "primary-fixed-dim": "#7cd0ff",
-                        "on-surface": "#181c1f",
-                        "secondary": "#50652a",
-                        "primary-container": "#007ba7",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "wood-bark": "#8B5E3C",
+                        "on-primary-fixed": "#001e2c",
                         "surface-container-high": "#e5e8ec",
+                        "on-tertiary-fixed-variant": "#623f18",
+                        "surface-variant": "#e0e3e7",
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "soft-sand": "#F1E3D3",
+                        "on-primary-fixed-variant": "#004c69",
+                        "inverse-on-surface": "#eef1f5",
+                        "surface-container-highest": "#e0e3e7",
+                        "tertiary-container": "#946a3f",
+                        "background": "#f7fafd",
+                        "on-tertiary-container": "#fff8f4",
+                        "surface": "#f7fafd",
+                        "primary": "#006184",
+                        "error": "#ba1a1a",
                         "surface-tint": "#00658b",
+                        "outline": "#6f787f",
+                        "on-secondary-fixed-variant": "#394d14",
+                        "surface-dim": "#d7dade",
+                        "on-surface-variant": "#3f484e",
+                        "on-secondary-container": "#546a2e",
+                        "surface-container-lowest": "#ffffff",
+                        "warm-glow": "#FFD166",
+                        "on-primary-container": "#f5faff",
+                        "on-background": "#181c1f",
+                        "primary-fixed": "#c4e7ff",
+                        "tertiary-fixed-dim": "#f0bd8b",
+                        "tertiary": "#785229",
+                        "surface-bright": "#f7fafd",
                         "on-secondary-fixed": "#131f00",
-                        "surface-variant": "#e0e3e7"
+                        "primary-container": "#007ba7",
+                        "river-deep": "#005F82"
                     },
                     "borderRadius": {
                         "DEFAULT": "0.25rem",
@@ -94,32 +105,32 @@
                         "full": "9999px"
                     },
                     "spacing": {
+                        "gutter": "24px",
                         "section-gap": "80px",
-                        "container-max": "1200px",
                         "base": "8px",
                         "margin-mobile": "16px",
                         "margin-desktop": "40px",
-                        "gutter": "24px"
+                        "container-max": "1200px"
                     },
                     "fontFamily": {
-                        "headline-sm": ["Manrope"],
-                        "label-caps": ["Plus Jakarta Sans"],
-                        "display-lg": ["Manrope"],
-                        "body-md": ["Plus Jakarta Sans"],
-                        "display-lg-mobile": ["Manrope"],
                         "price-tag": ["Manrope"],
+                        "display-lg-mobile": ["Manrope"],
                         "headline-md": ["Manrope"],
-                        "body-lg": ["Plus Jakarta Sans"]
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-caps": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Manrope"],
+                        "display-lg": ["Manrope"]
                     },
                     "fontSize": {
-                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                        "label-caps": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1em", "fontWeight": "600"}],
-                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                        "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
                         "price-tag": ["22px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
                         "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
-                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-caps": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
                     }
                 },
             },
@@ -130,16 +141,15 @@
 <!-- Top Navigation Bar -->
 <header class="bg-surface/90 backdrop-blur-md sticky top-0 z-50 shadow-sm">
 <nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
-<div class="text-headline-sm font-headline-sm font-bold text-river-deep tracking-tight">ВОЛГА РЯДОМ</div>
+<a class="text-headline-sm font-headline-sm font-bold text-river-deep tracking-tight" href="index.html">ВОЛГА РЯДОМ</a>
 <!-- Desktop Navigation -->
 <div class="hidden md:flex items-center gap-8">
-<a class="text-primary border-b-2 border-primary pb-1 font-label-caps text-label-caps" href="#">Наши дома</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="#">Чем заняться</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="#">Отзывы</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="#">Контакты</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-label-caps text-label-caps" href="houses.html">Наши домики</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="activities.html">Чем заняться</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="contacts.html">Контакты</a>
 </div>
 <div class="flex items-center gap-4">
-<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-caps text-label-caps hover:bg-primary-container transition-all active:scale-95 duration-150">Забронировать</button>
+<a class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-caps text-label-caps hover:bg-primary-container transition-all active:scale-95 duration-150 inline-block" href="booking.html">Забронировать</a>
 <button class="md:hidden text-primary">
 <span class="material-symbols-outlined">menu</span>
 </button>
@@ -153,19 +163,19 @@
 <div class="w-full h-full bg-cover bg-center transition-transform duration-1000 hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCQI204AWvIZYRIqNj1Q8216OI0xv44p8rRcwfHlWDZa3FAtY6cplvQHSeemfd63s5hi7oTrFnQnO4k124LTd5MIaagCS5g8Qbzdxmu_ul5d04ceojmAVGrWL_AqVteTIOr2t7wg8nMk0j2Ov6HMpDkIWAujCN8w0iHfPZYYYS3MCA-Sg0SFbhXO9B91o8HSXvxGMC8ckllz_DiZzoproItEFR1zIVGF550arnG629TL_8BbB2cdiCRz0832bl75Vjqcqagz9q2rMWB')"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
 </div>
-<div class="relative z-10 w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="relative z-10 w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal">
 <div class="max-w-2xl text-white">
-<span class="inline-block px-3 py-1 bg-warm-glow text-on-surface text-label-caps font-label-caps rounded-full mb-6">Премиальный отдых</span>
-<h1 class="text-display-lg-mobile md:text-display-lg font-display-lg mb-4">Побег к самому берегу Волги</h1>
-<p class="text-body-lg opacity-90 mb-8">Испытайте комфорт в архитектурных глэмпинг-домах с панорамным видом на Волгу и уютными деревянными интерьерами.</p>
+<span class="inline-block px-3 py-1 bg-warm-glow text-on-surface text-label-caps font-label-caps rounded-full mb-6">Премиум отдых</span>
+<h1 class="text-display-lg-mobile md:text-display-lg font-display-lg mb-4">Побег к берегу Волги</h1>
+<p class="text-body-lg opacity-90 mb-8">Испытайте комфорт в архитектурных глэмпинг-домах с панорамным видом на Волгу и уютными деревянистыми интерьерами.</p>
 </div>
 </div>
 </section>
 <!-- Bento Showcase Gallery -->
-<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal">
 <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
 <div>
-<h2 class="text-headline-md font-headline-md text-river-deep mb-2">Архитектурные дома</h2>
+<h2 class="text-headline-md font-headline-md text-river-deep mb-2">Архитектурные домики</h2>
 <p class="text-on-surface-variant max-w-lg">Каждый из наших 4 домов — это шедевр эко-минимализма, гармонично вписанный в окружающий березовый лес.</p>
 </div>
 <div class="flex gap-2">
@@ -180,44 +190,45 @@
 <div class="bento-grid">
 <!-- Large Feature: Interior Comfort -->
 <div class="bento-item-lg relative group overflow-hidden rounded-xl h-[500px]">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_kRfR4e1P2OeQOFzlu2yPTxJDpB9u65T4y82BvKY10qYYK_reFAy6r8xgyQf5IJQlz2joHV8sNzr8iH1Ow8cMQf62z_zFLXJw78viERRZ7DNxWMDJEQWT1E061pqTgCS5mE_K_usvxK_vx9A34d6wdsqrUPGXH7MHAu9BW_wMvG_oXzoztzL91xnw3aCBtBKvtI9SHXeINkqieMj0hy8-drhtspM6f9aMKHqiITc4ViURJ1nNxE4yLdt29QCqwLCcS9HT2D4SSL0C"/>
+<img alt="Interior" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_kRfR4e1P2OeQOFzlu2yPTxJDpB9u65T4y82BvKY10qYYK_reFAy6r8xgyQf5IJQlz2joHV8sNzr8iH1Ow8cMQf62z_zFLXJw78viERRZ7DNxWMDJEQWT1E061pqTgCS5mE_K_usvxK_vx9A34d6wdsqrUPGXH7MHAu9BW_wMvG_oXzoztzL91xnw3aCBtBKvtI9SHXeINkqieMj0hy8-drhtspM6f9aMKHqiITc4ViURJ1nNxE4yLdt29QCqwLCcS9HT2D4SSL0C"/>
 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
 <div class="absolute bottom-8 left-8 right-8 glass-card p-6 rounded-xl transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-<h3 class="text-headline-sm font-headline-sm text-forest-shadow mb-2">Комфорт King Size</h3>
-<p class="text-on-surface-variant">Наши спальные места укомплектованы премиальным органическим бельем и ортопедическими матрасами для глубокого восстановления сил на природе.</p>
+<h3 class="text-headline-sm font-headline-sm text-forest-shadow mb-2">Комфорт уровня King Size</h3>
+<p class="text-on-surface-variant">Наши спальные места укомплектованы премиальным органическим бельем и матрасами с эффектом памяти для глубокого восстановления сил на природе.</p>
+<a class="mt-4 inline-block text-primary font-bold hover:underline" href="booking.html">Подробнее и бронь</a>
 </div>
 </div>
 <!-- Small Feature: Amenities -->
 <div class="bento-item-sm bg-pine-green/10 rounded-xl p-8 flex flex-col justify-between">
 <div>
-<h3 class="text-headline-sm font-headline-sm text-pine-green mb-6">Умный отдых</h3>
+<h3 class="text-headline-sm font-headline-sm text-pine-green mb-6">Умный быт</h3>
 <ul class="space-y-4">
 <li class="flex items-center gap-4">
 <span class="material-symbols-outlined text-pine-green">wifi</span>
-<span class="font-medium">Высокоскоростной Wi-Fi</span>
+<span class="font-medium">Скоростной Wi-Fi</span>
 </li>
 <li class="flex items-center gap-4">
 <span class="material-symbols-outlined text-pine-green">ac_unit</span>
-<span class="font-medium">Климат-контроль (AC/Тепло)</span>
+<span class="font-medium">Климат-контроль</span>
 </li>
 <li class="flex items-center gap-4">
 <span class="material-symbols-outlined text-pine-green">outdoor_grill</span>
-<span class="font-medium">Персональная BBQ-зона</span>
+<span class="font-medium">Личная BBQ зона</span>
 </li>
 <li class="flex items-center gap-4">
 <span class="material-symbols-outlined text-pine-green">deck</span>
-<span class="font-medium">Терраса с видом на Волгу</span>
+<span class="font-medium">Терраса у реки</span>
 </li>
 </ul>
 </div>
 <div class="mt-8 pt-8 border-t border-pine-green/20">
 <p class="text-label-caps font-label-caps text-pine-green opacity-70">Стоимость от</p>
-<div class="text-price-tag font-price-tag text-river-deep">7000₽ <span class="text-body-md font-normal text-on-surface-variant">/ сутки</span></div>
+<div class="text-price-tag font-price-tag text-river-deep">7000₽ <span class="text-body-md font-normal text-on-surface-variant">/ ночь</span></div>
 </div>
 </div>
 <!-- Small Feature: Kitchen -->
 <div class="bento-item-sm relative group overflow-hidden rounded-xl h-[400px]">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxghNIKHIuQ8Rq66LTyNx000DhBSBAu42Jz9s_wf5-gh-v5jceEuowdCfURhjr0CtObgK50n0kSuLF09Sd7Svwn0aTije2sunP5ZrN1mfv8DDBjY7Pt52zvVUOs-9LY9S3uMQrUMxikwAR8aeX24Lc9Tab4uJ7j5bhZik9yI-asZpdVNEdbmJsbBjxmhETdGIbiS-ky2ykqCfuyjppYz0AXgjz3iFHkzbRtXlIjjvjlFic2shHA7ebGnMGQiM1P0Mgkng-vSlvWcoG"/>
+<img alt="Kitchen" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxghNIKHIuQ8Rq66LTyNx000DhBSBAu42Jz9s_wf5-gh-v5jceEuowdCfURhjr0CtObgK50n0kSuLF09Sd7Svwn0aTije2sunP5ZrN1mfv8DDBjY7Pt52zvVUOs-9LY9S3uMQrUMxikwAR8aeX24Lc9Tab4uJ7j5bhZik9yI-asZpdVNEdbmJsbBjxmhETdGIbiS-ky2ykqCfuyjppYz0AXgjz3iFHkzbRtXlIjjvjlFic2shHA7ebGnMGQiM1P0Mgkng-vSlvWcoG"/>
 <div class="absolute inset-0 bg-gradient-to-t from-forest-shadow/80 to-transparent flex items-end p-8">
 <div>
 <h3 class="text-headline-sm font-headline-sm text-white">Кухонная зона</h3>
@@ -235,16 +246,16 @@
                     </span>
 </div>
 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-<button class="bg-white text-river-deep px-8 py-3 rounded-full font-bold shadow-xl hover:scale-105 transition-transform">Виртуальный тур</button>
+<a class="bg-white text-river-deep px-8 py-3 rounded-full font-bold shadow-xl hover:scale-105 transition-transform" href="booking.html">Подробнее и бронь</a>
 </div>
 </div>
 </div>
 </section>
 <!-- Pricing Cards Section -->
-<section class="bg-surface-container-low py-section-gap">
+<section class="bg-surface-container-low py-section-gap reveal">
 <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center mb-16">
 <h2 class="text-headline-md font-headline-md text-forest-shadow mb-4">Прозрачные цены</h2>
-<p class="text-on-surface-variant max-w-2xl mx-auto">Выберите время для отдыха. Будь то тихий будний день или насыщенные выходные у реки.</p>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Выберите время для отдыха. Будь то спокойные будни или насыщенные выходные.</p>
 </div>
 <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid md:grid-cols-2 gap-8">
 <!-- Midweek -->
@@ -252,44 +263,44 @@
 <div class="flex justify-between items-start mb-8">
 <div>
 <span class="text-label-caps font-label-caps text-on-surface-variant uppercase tracking-widest">Пн - Чт</span>
-<h3 class="text-headline-sm font-headline-sm text-river-deep mt-2">Будняя безмятежность</h3>
+<h3 class="text-headline-sm font-headline-sm text-river-deep mt-2">Спокойные будни</h3>
 </div>
 <div class="text-right">
 <div class="text-price-tag font-price-tag text-primary">7000₽</div>
-<span class="text-body-md text-on-surface-variant">за сутки</span>
+<span class="text-body-md text-on-surface-variant">за ночь</span>
 </div>
 </div>
-<p class="text-on-surface-variant mb-8">Идеально для удаленной работы или уединенного отдыха. Наслаждайтесь тишиной и природой в спокойном ритме будних дней.</p>
-<button class="w-full py-4 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all">Проверить свободные даты</button>
+<p class="text-on-surface-variant mb-8">Идеально для удаленной работы или уединения. Наслаждайтесь тишиной и природой в отсутствие большого количества соседей.</p>
+<a class="w-full py-4 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all text-center inline-block" href="booking.html">Проверить наличие</a>
 </div>
 <!-- Weekend -->
 <div class="bg-river-deep p-10 rounded-2xl text-white shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
 <div class="flex justify-between items-start mb-8">
 <div>
 <span class="text-label-caps font-label-caps text-warm-glow uppercase tracking-widest">Пт - Вс</span>
-<h3 class="text-headline-sm font-headline-sm text-white mt-2">Выходные приключений</h3>
+<h3 class="text-headline-sm font-headline-sm text-white mt-2">Яркие выходные</h3>
 </div>
 <div class="text-right">
 <div class="text-price-tag font-price-tag text-warm-glow">9000₽</div>
-<span class="text-body-md text-white/70">за сутки</span>
+<span class="text-body-md text-white/70">за ночь</span>
 </div>
 </div>
-<p class="text-white/80 mb-8">Соберите самых близких. Выходные — это время гирлянд, живого общения у воды и идеальной атмосферы для ужинов на террасе.</p>
-<button class="w-full py-4 bg-warm-glow text-on-surface font-bold rounded-xl hover:scale-105 transition-all shadow-lg">Мгновенное бронирование</button>
+<p class="text-white/80 mb-8">Соберите близких людей. В выходные вас ждут праздничные гирлянды, оживленная атмосфера на реке и лучшие вечера на воздухе.</p>
+<a class="w-full py-4 bg-warm-glow text-on-surface font-bold rounded-xl hover:scale-105 transition-all shadow-lg text-center inline-block" href="booking.html">Забронировать сейчас</a>
 </div>
 </div>
 </section>
 <!-- CTA / Atmosphere -->
-<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative overflow-hidden rounded-3xl">
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative overflow-hidden rounded-3xl reveal">
 <div class="absolute inset-0">
-<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMhO4SvLkBwsKakPkD_Z7GKPq9fuWM8X2kt8uaQ1hV16l9DqYaZ1yHqaffN7vYbPpDNUF1u91_WFQsNUnHG9Z7WhPPRaFid_fiSlZgpX0yLfdxZdC_iVcQV3QATeO8ubZSlaqtIA36qw4d4l-v_mgCtZrUJfjvR_m6spRSLjyt1jAnTOK4Vn7PBPNCixjQTQDjcfRiQOrXyHZx-jVuqi4a_XdnTMK93_Nr00zubt6_h6EIyMsdlJt0LV-LeYFWhOqrH2V0ZqdzKAGY"/>
+<img alt="Atmosphere" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMhO4SvLkBwsKakPkD_Z7GKPq9fuWM8X2kt8uaQ1hV16l9DqYaZ1yHqaffN7vYbPpDNUF1u91_WFQsNUnHG9Z7WhPPRaFid_fiSlZgpX0yLfdxZdC_iVcQV3QATeO8ubZSlaqtIA36qw4d4l-v_mgCtZrUJfjvR_m6spRSLjyt1jAnTOK4Vn7PBPNCixjQTQDjcfRiQOrXyHZx-jVuqi4a_XdnTMK93_Nr00zubt6_h6EIyMsdlJt0LV-LeYFWhOqrH2V0ZqdzKAGY"/>
 <div class="absolute inset-0 bg-forest-shadow/60 backdrop-blur-sm"></div>
 </div>
 <div class="relative z-10 text-center py-24 text-white max-w-2xl mx-auto px-6">
-<h2 class="text-headline-md font-headline-md mb-6">Готовы к поездке на Волгу?</h2>
-<p class="text-body-lg mb-10 opacity-90">В доступе всего 4 дома. Рекомендуем бронировать выходные минимум за 2 недели.</p>
+<h2 class="text-headline-md font-headline-md mb-6">Готовы к отдыху на Волге?</h2>
+<p class="text-body-lg mb-10 opacity-90">В наличии всего 4 дома. Рекомендуем бронировать выходные за 2 недели до даты заезда.</p>
 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-<button class="bg-primary hover:bg-primary-container text-white px-10 py-4 rounded-xl font-bold transition-all shadow-lg">Забронировать дом</button>
+<a class="bg-primary hover:bg-primary-container text-white px-10 py-4 rounded-xl font-bold transition-all shadow-lg inline-block" href="booking.html">Забронировать домик</a>
 <button class="bg-white/10 border border-white/30 backdrop-blur hover:bg-white/20 text-white px-10 py-4 rounded-xl font-bold transition-all">Смотреть галерею</button>
 </div>
 </div>
@@ -299,9 +310,9 @@
 <footer class="bg-forest-shadow mt-section-gap">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto border-t border-white/10">
 <div class="col-span-1 md:col-span-2">
-<div class="text-headline-md font-headline-md text-soft-sand mb-6">ВОЛГА РЯДОМ</div>
+<a class="text-headline-md font-headline-md text-soft-sand mb-6 block" href="index.html">ВОЛГА РЯДОМ</a>
 <p class="text-soft-sand/80 text-body-md max-w-sm mb-8">
-                Переосмысление отдыха на природе через архитектурное совершенство и искреннее гостеприимство на берегах великой Волги.
+                Переосмысление загородного отдыха через архитектурное совершенство и устойчивое гостеприимство на берегах великой Волги.
             </p>
 <div class="flex gap-4">
 <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-soft-sand hover:bg-primary transition-all" href="#">
@@ -315,15 +326,15 @@
 <div class="space-y-4">
 <h4 class="text-label-caps font-label-caps text-white">Разделы</h4>
 <nav class="flex flex-col space-y-2">
-<a class="text-soft-sand/80 hover:text-white transition-colors text-body-md hover:translate-x-1 duration-200" href="#">Наши дома</a>
-<a class="text-soft-sand/80 hover:text-white transition-colors text-body-md hover:translate-x-1 duration-200" href="#">Чем заняться</a>
-<a class="text-soft-sand/80 hover:text-white transition-colors text-body-md hover:translate-x-1 duration-200" href="#">Вопросы и ответы</a>
+<a class="text-soft-sand/80 hover:text-white transition-colors text-body-md hover:translate-x-1 duration-200" href="houses.html">Наши домики</a>
+<a class="text-soft-sand/80 hover:text-white transition-colors text-body-md hover:translate-x-1 duration-200" href="activities.html">Чем заняться</a>
+<a class="text-soft-sand/80 hover:text-white transition-colors text-body-md hover:translate-x-1 duration-200" href="booking.html">Бронирование</a>
 </nav>
 </div>
 <div class="space-y-4">
 <h4 class="text-label-caps font-label-caps text-white">Поддержка</h4>
 <nav class="flex flex-col space-y-2">
-<a class="text-soft-sand/80 hover:text-white transition-colors text-body-md hover:translate-x-1 duration-200" href="#">Поддержка в Telegram</a>
+<a class="text-soft-sand/80 hover:text-white transition-colors text-body-md hover:translate-x-1 duration-200" href="contacts.html">Контакты</a>
 <a class="text-soft-sand/80 hover:text-white transition-colors text-body-md hover:translate-x-1 duration-200" href="#">Карта проезда</a>
 <a class="text-soft-sand/80 hover:text-white transition-colors text-body-md hover:translate-x-1 duration-200" href="#">Политика конфиденциальности</a>
 </nav>
@@ -336,23 +347,38 @@
 </div>
 </footer>
 <script>
-    // Simple scroll reveal for sections
+    // Smooth Entrance Animations using IntersectionObserver
     const observerOptions = {
-        threshold: 0.1
+        root: null,
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('opacity-100', 'translate-y-0');
-                entry.target.classList.remove('opacity-0', 'translate-y-10');
+                entry.target.classList.add('active');
+                // Optional: Stop observing after animation triggers
+                // observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    document.querySelectorAll('section').forEach(section => {
-        section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
-        observer.observe(section);
+    document.querySelectorAll('.reveal').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Handle smooth anchor links (optional but recommended for UX)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 </script>
 </body></html>
