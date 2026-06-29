@@ -130,14 +130,24 @@
 <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
 <a class="text-headline-sm font-headline-sm font-bold text-river-deep tracking-tight" href="index.html">ВОЛГА РЯДОМ</a>
 <div class="hidden md:flex gap-8 items-center">
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="cabins.html">Наши домики</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="activities.html">Чем заняться</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="reviews.html">Отзывы</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="house.html">Наши домики</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="what_to_do.html">Чем заняться</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="index.html#reviews">Отзывы</a>
 <a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="contacts.html">Контакты</a>
 </div>
 <div class="flex items-center gap-4">
 <a class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-caps text-label-caps shadow-sm hover:scale-95 transition-all duration-150 inline-block" href="booking.html">Забронировать</a>
-<span class="material-symbols-outlined md:hidden cursor-pointer" id="mobile-menu-btn">menu</span>
+<span class="material-symbols-outlined md:hidden cursor-pointer" id="mobile-menu-btn" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">menu</span>
+</div>
+</div>
+<!-- Mobile Menu -->
+<div class="hidden md:hidden absolute top-full left-0 w-full bg-surface border-t border-outline-variant p-6 shadow-xl z-40" id="mobile-menu">
+<div class="flex flex-col gap-4">
+<a class="text-on-surface font-label-caps py-2" href="house.html">Домики</a>
+<a class="text-on-surface font-label-caps py-2" href="what_to_do.html">Чем заняться</a>
+<a class="text-on-surface font-label-caps py-2" href="index.html#reviews">Отзывы</a>
+<a class="text-on-surface font-label-caps py-2" href="contacts.html">Контакты</a>
+<a class="bg-primary text-white px-6 py-3 rounded-lg text-center font-label-caps" href="booking.html">Забронировать</a>
 </div>
 </div>
 </nav>
@@ -474,9 +484,5 @@
         });
     });
 
-    // Simple Mobile Menu Toggle
-    document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
-        alert('Мобильное меню в разработке');
-    });
 </script>
 </body></html>

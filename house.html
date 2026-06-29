@@ -144,17 +144,27 @@
 <a class="text-headline-sm font-headline-sm font-bold text-river-deep tracking-tight" href="index.html">ВОЛГА РЯДОМ</a>
 <!-- Desktop Navigation -->
 <div class="hidden md:flex items-center gap-8">
-<a class="text-primary border-b-2 border-primary pb-1 font-label-caps text-label-caps" href="houses.html">Наши домики</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="activities.html">Чем заняться</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-label-caps text-label-caps" href="house.html">Наши домики</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="what_to_do.html">Чем заняться</a>
 <a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps" href="contacts.html">Контакты</a>
 </div>
 <div class="flex items-center gap-4">
 <a class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-caps text-label-caps hover:bg-primary-container transition-all active:scale-95 duration-150 inline-block" href="booking.html">Забронировать</a>
-<button class="md:hidden text-primary">
+<button class="md:hidden text-primary" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
 <span class="material-symbols-outlined">menu</span>
 </button>
 </div>
 </nav>
+<!-- Mobile Menu -->
+<div class="hidden md:hidden absolute top-full left-0 w-full bg-surface border-t border-outline-variant p-6 shadow-xl z-40" id="mobile-menu">
+<div class="flex flex-col gap-4">
+<a class="text-primary font-label-caps py-2 border-b border-outline-variant/30" href="house.html">Домики</a>
+<a class="text-on-surface font-label-caps py-2" href="what_to_do.html">Чем заняться</a>
+<a class="text-on-surface font-label-caps py-2" href="index.html#reviews">Отзывы</a>
+<a class="text-on-surface font-label-caps py-2" href="contacts.html">Контакты</a>
+<a class="bg-primary text-white px-6 py-3 rounded-lg text-center font-label-caps" href="booking.html">Забронировать</a>
+</div>
+</div>
 </header>
 <main>
 <!-- Hero Showcase -->
@@ -326,8 +336,8 @@
 <div class="space-y-4">
 <h4 class="text-label-caps font-label-caps text-white">Разделы</h4>
 <nav class="flex flex-col space-y-2">
-<a class="text-soft-sand/80 hover:text-white transition-colors text-body-md hover:translate-x-1 duration-200" href="houses.html">Наши домики</a>
-<a class="text-soft-sand/80 hover:text-white transition-colors text-body-md hover:translate-x-1 duration-200" href="activities.html">Чем заняться</a>
+<a class="text-soft-sand/80 hover:text-white transition-colors text-body-md hover:translate-x-1 duration-200" href="house.html">Наши домики</a>
+<a class="text-soft-sand/80 hover:text-white transition-colors text-body-md hover:translate-x-1 duration-200" href="what_to_do.html">Чем заняться</a>
 <a class="text-soft-sand/80 hover:text-white transition-colors text-body-md hover:translate-x-1 duration-200" href="booking.html">Бронирование</a>
 </nav>
 </div>

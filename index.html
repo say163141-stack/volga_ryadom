@@ -133,22 +133,32 @@
 <!-- TopNavBar -->
 <header class="docked full-width top-0 sticky z-50 bg-surface/90 backdrop-blur-md shadow-sm">
 <nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
-<a class="text-headline-sm font-headline-sm font-bold text-river-deep tracking-tight" href="SCREEN_15">ВОЛГА РЯДОМ</a>
+<a class="text-headline-sm font-headline-sm font-bold text-river-deep tracking-tight" href="index.html">ВОЛГА РЯДОМ</a>
 <ul class="hidden md:flex gap-8 items-center">
-<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="SCREEN_22">Домики</a></li>
-<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="SCREEN_19">Чем заняться</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="house.html">Домики</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="what_to_do.html">Чем заняться</a></li>
 <li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="#reviews">Отзывы</a></li>
-<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="SCREEN_17">Контакты</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="contacts.html">Контакты</a></li>
 </ul>
 <div class="flex items-center gap-4">
-<a class="bg-primary text-white px-6 py-2.5 rounded-lg text-label-caps font-label-caps active:scale-95 transition-all duration-150 hover:bg-primary-container shadow-md flex items-center justify-center" href="SCREEN_31">
+<a class="bg-primary text-white px-6 py-2.5 rounded-lg text-label-caps font-label-caps active:scale-95 transition-all duration-150 hover:bg-primary-container shadow-md flex items-center justify-center" href="booking.html">
                     Забронировать
                 </a>
-<button class="md:hidden text-primary">
+<button class="md:hidden text-primary" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
 <span class="material-symbols-outlined" data-icon="menu">menu</span>
 </button>
 </div>
 </nav>
+<!-- Mobile Menu -->
+<div class="hidden md:hidden absolute top-full left-0 w-full bg-surface border-t border-outline-variant p-6 shadow-xl z-40" id="mobile-menu">
+<div class="flex flex-col gap-4">
+<a class="text-on-surface font-label-caps py-2" href="house.html">Домики</a>
+<a class="text-on-surface font-label-caps py-2" href="what_to_do.html">Чем заняться</a>
+<a class="text-on-surface font-label-caps py-2" href="#reviews">Отзывы</a>
+<a class="text-on-surface font-label-caps py-2" href="contacts.html">Контакты</a>
+<a class="bg-primary text-white px-6 py-3 rounded-lg text-center font-label-caps" href="booking.html">Забронировать</a>
+</div>
+</div>
 </header>
 <main class="bg-pattern">
 <!-- Hero Section -->
@@ -162,8 +172,8 @@
 <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6 text-river-deep">Отдых на берегу Волги с городским комфортом</h1>
 <p class="font-body-lg text-body-lg mb-8 text-on-surface-variant">Премиальный глэмпинг: 4 уютных домика, бассейн и тишина соснового леса в шаге от великой реки.</p>
 <div class="flex flex-col sm:flex-row gap-4">
-<a class="bg-primary text-white px-8 py-4 rounded-lg font-label-caps text-center hover:shadow-lg hover:-translate-y-1 transition-all glow-effect" href="SCREEN_31">Забронировать</a>
-<a class="bg-white/80 text-forest-shadow px-8 py-4 rounded-lg font-label-caps text-center border border-outline-variant hover:bg-white transition-all" href="SCREEN_19">Узнать больше</a>
+<a class="bg-primary text-white px-8 py-4 rounded-lg font-label-caps text-center hover:shadow-lg hover:-translate-y-1 transition-all glow-effect" href="booking.html">Забронировать</a>
+<a class="bg-white/80 text-forest-shadow px-8 py-4 rounded-lg font-label-caps text-center border border-outline-variant hover:bg-white transition-all" href="what_to_do.html">Узнать больше</a>
 </div>
 </div>
 </div>
@@ -179,7 +189,7 @@
                     Все домики оборудованы панорамными окнами, кондиционерами и собственными террасами для идеальных завтраков.
                 </div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="grid grid-cols-1 gap-gutter max-w-xl">
 <!-- Cabin Card 1 -->
 <div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-outline-variant/30">
 <div class="relative h-72 overflow-hidden">
@@ -196,26 +206,7 @@
 </div>
 </div>
 <p class="text-on-surface-variant mb-6">Идеально для пары. Панорамный вид на склон и реку, уютная терраса и все удобства отеля в лесу.</p>
-<a class="block w-full py-3 rounded-lg border border-primary text-primary font-label-caps text-center hover:bg-primary hover:text-white transition-all" href="SCREEN_22">Подробнее и бронирование</a>
-</div>
-</div>
-<!-- Cabin Card 2 -->
-<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-outline-variant/30">
-<div class="relative h-72 overflow-hidden">
-<img alt="Семейный домик премиум класса" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6a13tMqtS-NAR5_Y0M9V9s0jsjew6hQdYZNPzxdfhk1_z9WnpapsOCn_aqkq4wpMnoZa5WIQ3qRI5i5XYqrIUaEdC8Fi57zVEgUStATgCyIYwFJcmJwCqAyAc0PBYiXMttDkdono2D4nDoBmRfVNUvxQ2F4F-IR950Pif2lIKUBMDgFPhFsxOO1y52FV-5bLUH1YDtTUw3KwnSuDVABYXT8aGuyC3HfpdeJhzLlTzwGg1duzTF92XczDfAAtvSR3AE_F7o_xIHmJS"/>
-<div class="absolute top-4 left-4 bg-warm-glow text-forest-shadow px-3 py-1 rounded-full text-label-caps font-label-caps">От 9000₽</div>
-</div>
-<div class="p-6">
-<div class="flex justify-between items-center mb-4">
-<h3 class="font-headline-sm text-headline-sm text-river-deep">Премиум Семейный</h3>
-<div class="flex gap-2">
-<span class="material-symbols-outlined text-pine-green text-[20px]" data-icon="family_restroom">family_restroom</span>
-<span class="material-symbols-outlined text-pine-green text-[20px]" data-icon="kitchen">kitchen</span>
-<span class="material-symbols-outlined text-pine-green text-[20px]" data-icon="deck">deck</span>
-</div>
-</div>
-<p class="text-on-surface-variant mb-6">Просторный вариант для семьи до 4-х человек. Увеличенная терраса и премиальная отделка деревом.</p>
-<a class="block w-full py-3 rounded-lg border border-primary text-primary font-label-caps text-center hover:bg-primary hover:text-white transition-all" href="SCREEN_22">Подробнее и бронирование</a>
+<a class="block w-full py-3 rounded-lg border border-primary text-primary font-label-caps text-center hover:bg-primary hover:text-white transition-all" href="house.html">Подробнее и бронирование</a>
 </div>
 </div>
 </div>
@@ -300,11 +291,78 @@
 </div>
 </section>
 </main>
+<!-- Reviews Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal" id="reviews">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div>
+<span class="text-primary font-label-caps text-label-caps tracking-widest uppercase mb-2 block">Отзывы гостей</span>
+<h2 class="font-headline-md text-headline-md text-forest-shadow">Что говорят наши гости</h2>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-warm-glow" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-xl text-river-deep">4.9</span>
+<span class="text-on-surface-variant">(48 отзывов)</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/30 shadow-sm">
+<div class="flex gap-1 mb-4">
+<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface-variant mb-6">"Невероятное место! Домик оказался очень уютным, вид на Волгу просто захватывает дух. Баня на дровах — отдельный кайф. Обязательно вернёмся!"</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">А</div>
+<div>
+<p class="font-bold text-on-surface">Анна К.</p>
+<p class="text-sm text-on-surface-variant">Июль 2024</p>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/30 shadow-sm">
+<div class="flex gap-1 mb-4">
+<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface-variant mb-6">"Приехали с женой на годовщину. Всё продумано до мелочей: и терраса с видом, и уютный интерьер, и тишина соснового леса. Персонал очень отзывчивый."</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-pine-green/20 flex items-center justify-center text-pine-green font-bold">М</div>
+<div>
+<p class="font-bold text-on-surface">Михаил Р.</p>
+<p class="text-sm text-on-surface-variant">Август 2024</p>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/30 shadow-sm">
+<div class="flex gap-1 mb-4">
+<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-on-surface-variant mb-6">"Лучший отдых за последние годы! SUP-бординг на рассвете — это что-то особенное. Бассейн чистый, инфраструктура на уровне. Рекомендую всем!"</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-warm-glow/30 flex items-center justify-center text-tertiary font-bold">Е</div>
+<div>
+<p class="font-bold text-on-surface">Екатерина В.</p>
+<p class="text-sm text-on-surface-variant">Сентябрь 2024</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <!-- Footer -->
 <footer class="bg-forest-shadow text-soft-sand py-12 border-t border-white/10">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <div class="col-span-1 md:col-span-2">
-<a class="text-headline-md font-headline-md text-soft-sand mb-6 block" href="SCREEN_15">ВОЛГА РЯДОМ</a>
+<a class="text-headline-md font-headline-md text-soft-sand mb-6 block" href="index.html">ВОЛГА РЯДОМ</a>
 <p class="text-soft-sand/60 max-w-sm mb-8">Премиальный глэмпинг на берегу Волги. Место, где природа встречается с комфортом. Мы создаем пространство для вашего вдохновения.</p>
 <div class="flex gap-4">
 <a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-warm-glow hover:text-forest-shadow transition-all" href="#"><span class="material-symbols-outlined" data-icon="public">public</span></a>
@@ -314,10 +372,10 @@
 <div>
 <h4 class="text-label-caps font-label-caps text-white mb-6">Навигация</h4>
 <ul class="space-y-4">
-<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 inline-block" href="SCREEN_22">Наши домики</a></li>
-<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 inline-block" href="SCREEN_19">Чем заняться</a></li>
-<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 inline-block" href="SCREEN_31">Забронировать</a></li>
-<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 inline-block" href="SCREEN_24">Политика конфиденциальности</a></li>
+<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 inline-block" href="house.html">Наши домики</a></li>
+<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 inline-block" href="what_to_do.html">Чем заняться</a></li>
+<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 inline-block" href="booking.html">Забронировать</a></li>
+<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 inline-block" href="#">Политика конфиденциальности</a></li>
 </ul>
 </div>
 <div>
@@ -325,7 +383,7 @@
 <ul class="space-y-4">
 <li class="flex items-start gap-3">
 <span class="material-symbols-outlined text-warm-glow" data-icon="location_on">location_on</span>
-<a class="text-soft-sand/80 hover:text-white transition-colors" href="SCREEN_17">Тверская область, берег Волги</a>
+<a class="text-soft-sand/80 hover:text-white transition-colors" href="contacts.html">Тверская область, берег Волги</a>
 </li>
 <li class="flex items-center gap-3">
 <span class="material-symbols-outlined text-warm-glow" data-icon="phone">phone</span>

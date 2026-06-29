@@ -138,20 +138,30 @@
 <!-- TopNavBar -->
 <nav class="bg-surface/90 backdrop-blur-md sticky top-0 z-50 shadow-sm">
 <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
-<a class="text-headline-sm font-headline-sm font-bold text-river-deep tracking-tight" href="SCREEN_15">В О Л Г А Р Я Д О М</a>
+<a class="text-headline-sm font-headline-sm font-bold text-river-deep tracking-tight" href="index.html">В О Л Г А Р Я Д О М</a>
 <div class="hidden md:flex gap-8 items-center">
-<a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="SCREEN_22">Наши домики</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="house.html">Наши домики</a>
 <a class="text-primary border-b-2 border-primary pb-1 text-label-caps font-label-caps" href="#">Чем заняться</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="SCREEN_15#reviews">Отзывы</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="SCREEN_17">Контакты</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="index.html#reviews">Отзывы</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="contacts.html">Контакты</a>
 </div>
 <div class="flex items-center gap-4">
-<a class="hidden md:block bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-caps hover:bg-primary-container transition-all active:scale-95 duration-150" href="SCREEN_31">
+<a class="hidden md:block bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-caps hover:bg-primary-container transition-all active:scale-95 duration-150" href="booking.html">
                 Забронировать
             </a>
-<button class="md:hidden text-primary p-2">
+<button class="md:hidden text-primary p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
 <span class="material-symbols-outlined">menu</span>
 </button>
+</div>
+</div>
+<!-- Mobile Menu -->
+<div class="hidden md:hidden absolute top-full left-0 w-full bg-surface border-t border-outline-variant p-6 shadow-xl z-40" id="mobile-menu">
+<div class="flex flex-col gap-4">
+<a class="text-on-surface font-label-caps py-2" href="house.html">Домики</a>
+<a class="text-primary font-label-caps py-2 border-b border-outline-variant/30" href="what_to_do.html">Чем заняться</a>
+<a class="text-on-surface font-label-caps py-2" href="index.html#reviews">Отзывы</a>
+<a class="text-on-surface font-label-caps py-2" href="contacts.html">Контакты</a>
+<a class="bg-primary text-white px-6 py-3 rounded-lg text-center font-label-caps" href="booking.html">Забронировать</a>
 </div>
 </div>
 </nav>
@@ -165,7 +175,7 @@
 <h1 class="text-display-lg-mobile md:text-display-lg font-display-lg mb-4">Скользите по глади Волги</h1>
 <p class="text-body-lg opacity-90 max-w-lg mb-6">Обретите истинное спокойствие с нашими премиальными SUP-комплектами. Кристально чистое утро, зеркальная вода и неспешный ритм реки.</p>
 <div class="flex gap-4">
-<a class="bg-primary text-on-primary px-8 py-3 rounded-lg font-label-caps shadow-lg hover:shadow-primary/30 transition-all flex items-center gap-2" href="SCREEN_31">
+<a class="bg-primary text-on-primary px-8 py-3 rounded-lg font-label-caps shadow-lg hover:shadow-primary/30 transition-all flex items-center gap-2" href="booking.html">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">surfing</span>
                     Арендовать SUP
                 </a>
@@ -190,7 +200,7 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
 <!-- Water Activities -->
-<div class="md:col-span-8 group cursor-pointer bento-item bg-surface-container relative rounded-xl overflow-hidden h-[400px]" onclick="window.location.href='SCREEN_31'">
+<div class="md:col-span-8 group cursor-pointer bento-item bg-surface-container relative rounded-xl overflow-hidden h-[400px]" onclick="window.location.href='booking.html'">
 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA3VroC3Eb0bYdbjCEsJ_81gAFa5u2_By_SZI-cp1dlUAPlr_xlI4On_bjCl_HV4i_Bqwx6FU4-fqaYkcZ8w00LUeK2M2PWjTdAKMXB5RXHD0bpPuke6N4YzeFpp9iWfxh0ohVVnB3YWNGhf-a9R-1oRevV9Hvxje7nEbvBe1mSoI-hamS8geivtpRJTM6ZoasUExwkXmW2iOckCj391C7ch1d_hPsAg1EemBxoQdpuGOjPFFzNNZVDkwkjcX9cw55EDRY8-E1tiCFi')"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-forest-shadow/60 to-transparent"></div>
 <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end">
@@ -204,7 +214,7 @@
 </div>
 </div>
 <!-- Land: Bicycles -->
-<div class="md:col-span-4 group cursor-pointer bento-item bg-soft-sand relative rounded-xl overflow-hidden h-[400px]" onclick="window.location.href='SCREEN_31'">
+<div class="md:col-span-4 group cursor-pointer bento-item bg-soft-sand relative rounded-xl overflow-hidden h-[400px]" onclick="window.location.href='booking.html'">
 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCtGT_O82xAIcoLIlJ-62nqf3Ai1kAKmkXRGY1E1B3C1lWI9py92o8PTDfK7Xx-IlPQ-BNA1A3BOejs5X8TAxgztjGwfajxmZgIoe-RLgi_-K6zfILlniH5mYfxnmfWJ2jKxWLFG3buAJBsRkrRU28OqljPRMpNVulf8Mjg7cJmfmrJ6bDBsvd8UDxemN6UYwwprueZjfPYD0kBklx7hGYcJYn-2ksTnj-rBVBJUjZ6r40SvUzzb9Os3HeCG0OOeeYsWwswA9XC806y')"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-wood-bark/60 to-transparent"></div>
 <div class="absolute bottom-6 left-6 right-6">
@@ -214,7 +224,7 @@
 </div>
 </div>
 <!-- Relaxation: Banya -->
-<div class="md:col-span-4 group cursor-pointer bento-item bg-forest-shadow relative rounded-xl overflow-hidden h-[400px]" onclick="window.location.href='SCREEN_31'">
+<div class="md:col-span-4 group cursor-pointer bento-item bg-forest-shadow relative rounded-xl overflow-hidden h-[400px]" onclick="window.location.href='booking.html'">
 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA6aZhsNsMI2dwKhnY5LsW71C-1oi7ui7wrZ2hcFF0T8RKjK2EtBWCqIo7Atoacw-RG-0aGP6zOQBdEmvupKjFAcdtSzYcGiBjIT0eXppS8g8egFVNIGuIGrNAQIsGI5ejO-gCtKhhSWmQv0pro5YxVDslAvR8rdNX3ioaz5IwZkxVWEO7egJdZCCgET_fRhFChgqRHgBqMRdodAXjxs5GKI6FpcBya_pGu6H1JpwESUEoroPfE2tlFmncVOBPJdib54Dp-BDcivAd1')"></div>
 <div class="absolute inset-0 bg-forest-shadow/20"></div>
 <div class="absolute bottom-6 left-6 right-6">
@@ -223,7 +233,7 @@
 </div>
 </div>
 <!-- Relaxation: Pool -->
-<div class="md:col-span-8 group cursor-pointer bento-item bg-river-deep relative rounded-xl overflow-hidden h-[400px]" onclick="window.location.href='SCREEN_31'">
+<div class="md:col-span-8 group cursor-pointer bento-item bg-river-deep relative rounded-xl overflow-hidden h-[400px]" onclick="window.location.href='booking.html'">
 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAFObP8dKCTXgI-R4yifiUuie8VPgDNJ_NCdIkmAx_aZTnYYDWdgsQjhL7Ph6G7pTMICd0sarTKfjBDLMW0mZyAz2XKZ8Yb2HcXyMhmOIzIgtwoUOJVhtUdjCKA2J_f20ql8Ox-DUTj86jHc-cJNOIGHLSGPf_eoH98LC15RDXESJ-1l58Pd8cC69IaCQqyqD57ss-B_SP5jYvmm-_cxPYy13h3hYCEKu8moOnCroEAVF3eX5ODrbuozL5kOHZLfv1gdYG_Wv6pr7UU')"></div>
 <div class="absolute inset-0 bg-gradient-to-r from-river-deep/40 to-transparent"></div>
 <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end">
@@ -246,7 +256,7 @@
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 <!-- Horse Farm -->
-<div class="flex gap-4 p-4 rounded-2xl hover:bg-white transition-all group cursor-pointer" onclick="window.location.href='SCREEN_31'">
+<div class="flex gap-4 p-4 rounded-2xl hover:bg-white transition-all group cursor-pointer" onclick="window.location.href='booking.html'">
 <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCURm5T99t8CqqLKdDJNYPU3G1FGwrQETNdV0w13qP0EspGvB3_ieqc-FkHRejQ0b2CU43GNpno7Lc2TCW0C6uD9oIneCM9WazS2y0YC90RhUMKOfSEPCLFhwo9ljPRR_-QTTz0rrJr3O1XG2hee4FXvppa-kKvQMxUo8ctX1WRNikmn3LTP1LPiRn7fa_yaCa8xO7v9LW9WvNZfNN0E6nOJ9fN_EMzy5oBXC1uTKpES9yJgCS62P5zNbVZdFqPI8bz4sX4YvieRSqH"/>
 </div>
@@ -256,7 +266,7 @@
 </div>
 </div>
 <!-- Golden Sands -->
-<div class="flex gap-4 p-4 rounded-2xl hover:bg-white transition-all group cursor-pointer" onclick="window.location.href='SCREEN_31'">
+<div class="flex gap-4 p-4 rounded-2xl hover:bg-white transition-all group cursor-pointer" onclick="window.location.href='booking.html'">
 <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl-ttAIRfn2naQaOwW3MI5QLlj9pSMhydT3sFg5BIyED15B8G9J2-syOMtleWw8YxTHNOxMbQCU-FNAKE2jSEe6jABlw5kiIte14zvJ44ruq9Z4HclJRquAIjUGpSHGzIQzGkjAY0nm0M0VlNpiTgkBDlOXxO9S1J9VirQYIYb80eO483OA5uN28x_SfVGaukFAU1Y5nLsk2GhnwbHyJpjHvOGDl353k2N_FCmJ0q1e_W4WIfeG3k84Gij76geB_KH7XTDRX3s69xm"/>
 </div>
@@ -266,7 +276,7 @@
 </div>
 </div>
 <!-- Farmer Market -->
-<div class="flex gap-4 p-4 rounded-2xl hover:bg-white transition-all group cursor-pointer" onclick="window.location.href='SCREEN_31'">
+<div class="flex gap-4 p-4 rounded-2xl hover:bg-white transition-all group cursor-pointer" onclick="window.location.href='booking.html'">
 <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl4lm_TvDez1f1F_MH2LXccEaze6e70PlC_SohgkwePqjhiII9DUocRpkujp5ihDz8vPOZLO4QsGZL34fAIyoNWoyyl3BQswoLVZF0ecA0BVwjA4NqjalPH22qtdhWKV0UptZszbf0ixA1szBLRGcJcxr3LfrNDR18V7P1GAi125bTyd7im_IQOFnOSEZisPTwMHIorOcX5OGCkZaIxjznGTPZCPzerHurFRhnNQuwamkkVYrpegRAXFwj9ClLAuLLPqrTH7aNdXOL"/>
 </div>
@@ -276,7 +286,7 @@
 </div>
 </div>
 <!-- Holy Springs -->
-<div class="flex gap-4 p-4 rounded-2xl hover:bg-white transition-all group cursor-pointer" onclick="window.location.href='SCREEN_31'">
+<div class="flex gap-4 p-4 rounded-2xl hover:bg-white transition-all group cursor-pointer" onclick="window.location.href='booking.html'">
 <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB53Agn7Rt7KUM00fX88g4QPk_wP2JcmZN9l1fPElSXrD2lXAOrmXrbGW16Td3zWRtZ7FGuBnP7At1p7MeSaflpPeBrKGpLVFEoEsM65gaobF63vVbJsucGp7apmUfAU6F63WEC0YvFmfz-eTjQ6-EIeVrZLrGdpc836nxSbTYMitX13yOI7h9rExF5FjQua4yUaXS7uVfO0We2yJaD9112peLgip-KwPscFj9Z0DWahQKSVSlS0-nPSDENECksxp4TmbY2T-yqmP-V"/>
 </div>
@@ -286,7 +296,7 @@
 </div>
 </div>
 <!-- Monasteries -->
-<div class="flex gap-4 p-4 rounded-2xl hover:bg-white transition-all group cursor-pointer" onclick="window.location.href='SCREEN_31'">
+<div class="flex gap-4 p-4 rounded-2xl hover:bg-white transition-all group cursor-pointer" onclick="window.location.href='booking.html'">
 <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHx8plQMcz5dTNSbRd7hYDx1Ehv4HEO7LSVTiq8Z6iEMeA7PnMJaLS6pNrketWYweT1eZan0XCR5loAqLiHEgZcZmJ0_dU3kK6us5fzATLCMmpGMXTelaWfpyNLS-Qmy62C1OVAfZUo3Nv7lAOaCSPY_gbhT3Uqen2-QqVX_ZP7ihNmjeejKljqRbVvz_Qxi2e1Ezariw9bxS1XL1flOdJk5wFy1FUKloIoR6lLF4TnZXrEcsFBzMjKvVyiSh3aKtdoeCxq4Iv9Pw2"/>
 </div>
@@ -296,7 +306,7 @@
 </div>
 </div>
 <!-- Viewpoints -->
-<div class="flex gap-4 p-4 rounded-2xl hover:bg-white transition-all group cursor-pointer" onclick="window.location.href='SCREEN_31'">
+<div class="flex gap-4 p-4 rounded-2xl hover:bg-white transition-all group cursor-pointer" onclick="window.location.href='booking.html'">
 <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
 <img class="w-full h-full object-cover group-hover:scale-110 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfkU6c2RAZHZ-MOYd2CgiaMoQKhG1o9I73YKq01IrolA_9qY01j3p87Ln7rYURpuHcdEwx1CfFj29T0cOBEc-8EyFtTO2C8l4ZPBuY4h2Mo8vjRTQe3VkVOuXYaAPUxHmkXrJdbRnDE_BPdrKexnBqUYlE5kKWPvYO8IbQC6cyfTIargciyT0v3H9YioRlEw3svPiBg2hukvN4avAovRdfDDMxsOkRbv1TuXuVcoqGGD-qKA1y1T1QiYYVBWNSqrB7ElDHp6BXW_-U"/>
 </div>
@@ -328,7 +338,7 @@
 <p class="text-on-surface-variant">2 часа из Самары, 1.5 часа из Тольятти. Живописная дорога через национальный парк.</p>
 </div>
 </div>
-<a class="w-full border border-primary text-primary px-6 py-3 rounded-lg font-label-caps hover:bg-primary-container hover:text-white transition-all flex items-center justify-center gap-2" href="SCREEN_17">
+<a class="w-full border border-primary text-primary px-6 py-3 rounded-lg font-label-caps hover:bg-primary-container hover:text-white transition-all flex items-center justify-center gap-2" href="contacts.html">
 <span class="material-symbols-outlined">map</span>
                         Открыть в навигаторе
                     </a>
@@ -362,10 +372,10 @@
 <div>
 <h5 class="text-label-caps font-label-caps mb-6 opacity-60">Навигация</h5>
 <ul class="space-y-4">
-<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 duration-200 block" href="SCREEN_15">Главная</a></li>
-<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 duration-200 block" href="SCREEN_22">Наши домики</a></li>
+<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 duration-200 block" href="index.html">Главная</a></li>
+<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 duration-200 block" href="house.html">Наши домики</a></li>
 <li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 duration-200 block" href="#">Чем заняться</a></li>
-<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 duration-200 block" href="SCREEN_31">Бронирование</a></li>
+<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 duration-200 block" href="booking.html">Бронирование</a></li>
 </ul>
 </div>
 <div>
@@ -373,14 +383,14 @@
 <ul class="space-y-4">
 <li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 duration-200 block" href="#">Политика конфиденциальности</a></li>
 <li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 duration-200 block" href="#">Условия обслуживания</a></li>
-<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 duration-200 block" href="SCREEN_17">Контакты</a></li>
+<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 duration-200 block" href="contacts.html">Контакты</a></li>
 </ul>
 </div>
 <div>
 <h5 class="text-label-caps font-label-caps mb-6 opacity-60">Связь</h5>
 <ul class="space-y-4">
 <li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 duration-200 block flex items-center gap-2" href="#"><span class="material-symbols-outlined text-sm">send</span> Поддержка Telegram</a></li>
-<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 duration-200 block flex items-center gap-2" href="SCREEN_17"><span class="material-symbols-outlined text-sm">location_on</span> Мы на карте</a></li>
+<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 duration-200 block flex items-center gap-2" href="contacts.html"><span class="material-symbols-outlined text-sm">location_on</span> Мы на карте</a></li>
 </ul>
 </div>
 </div>
@@ -389,7 +399,7 @@
 </div>
 </footer>
 <!-- FAB -->
-<a class="fixed bottom-8 right-8 bg-warm-glow text-forest-shadow w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-40 md:hidden" href="SCREEN_31">
+<a class="fixed bottom-8 right-8 bg-warm-glow text-forest-shadow w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-40 md:hidden" href="booking.html">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
 </a>
 <script>
