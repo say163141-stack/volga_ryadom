@@ -1,9 +1,33 @@
 /* ============ ВОЛГА РЯДОМ — общий скрипт ============ */
 /* Адреса бэкенда n8n. Если путь вебхука другой — поменяйте здесь. */
 const N8N_BASE = "https://say163141.app.n8n.cloud";
-const BOOKING_WEBHOOK = N8N_BASE + "/webhook/volga-booking-create"; // приём заявки
-const BUSY_DATES_WEBHOOK = N8N_BASE + "/webhook/volga-busy-dates";   // занятые даты (GET)
+const BOOKING_WEBHOOK = N8N_BASE + "/webhook/volga-booking-create"; // приём заявки (расходует execution в n8n)
+/* Занятые даты читаются НАПРЯМУЮ из публичного Google Sheets (без n8n) —
+   так просмотр календаря не тратит execution-квоту n8n. Расходуется только бронирование. */
+const BUSY_CALENDAR_CSV = "https://docs.google.com/spreadsheets/d/1B3WqP-4xF3rgqtBeoYLwNJgzBQfuDcMqesXrgxcR_mI/gviz/tq?tqx=out:csv&gid=1360421097";
 const TELEGRAM_LINK = "https://t.me/volga_ryadom_bot";
+
+/* Простой парсер CSV для гугл-таблиц (значения в кавычках, запятая-разделитель) */
+function parseCSV(text){
+  const rows=[]; let row=[]; let cur=''; let inQuotes=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i];
+    if(inQuotes){
+      if(c==='"'){
+        if(text[i+1]==='"'){ cur+='"'; i++; } else { inQuotes=false; }
+      } else cur+=c;
+    } else {
+      if(c==='"') inQuotes=true;
+      else if(c===','){ row.push(cur); cur=''; }
+      else if(c==='\n'||c==='\r'){
+        if(c==='\r'&&text[i+1]==='\n') i++;
+        row.push(cur); cur=''; rows.push(row); row=[];
+      } else cur+=c;
+    }
+  }
+  if(cur!==''||row.length){ row.push(cur); rows.push(row); }
+  return rows.filter(r=>r.length>1||r[0]!=='');
+}
 
 /* ---------- Мобильное меню ---------- */
 (function(){
@@ -97,15 +121,20 @@ const MONTHS=['Январь','Февраль','Март','Апрель','Май'
     calStatus.textContent='Загружаем занятые даты…';
     busy=new Set();
     render();
-    fetch(BUSY_DATES_WEBHOOK+'?object_id='+encodeURIComponent(currentHouse()), {method:'GET'})
-      .then(r=> r.ok ? r.json() : Promise.reject(r.status))
-      .then(data=>{
-        // ожидаем {busy_dates:["2026-07-10", ...]} либо массив диапазонов {check_in,check_out,status}
-        let dates=[];
-        if(Array.isArray(data)) dates=collectFromRanges(data);
-        else if(data && Array.isArray(data.busy_dates)) dates=data.busy_dates;
-        else if(data && Array.isArray(data.bookings)) dates=collectFromRanges(data.bookings);
-        busy=new Set(dates);
+    const house=currentHouse();
+    fetch(BUSY_CALENDAR_CSV+'&_='+Date.now(), {method:'GET', cache:'no-store'})
+      .then(r=> r.ok ? r.text() : Promise.reject(r.status))
+      .then(text=>{
+        const rows=parseCSV(text);
+        const header=rows.shift()||[];
+        const idx={object_id:header.indexOf('object_id'), check_in:header.indexOf('check_in'), check_out:header.indexOf('check_out'), status:header.indexOf('status')};
+        const bookings=rows.map(r=>({
+          object_id:r[idx.object_id],
+          check_in:r[idx.check_in],
+          check_out:r[idx.check_out],
+          status:r[idx.status]
+        })).filter(b=>b.object_id===house);
+        busy=new Set(collectFromRanges(bookings));
         calStatus.textContent = busy.size ? 'Занятые даты этого домика отмечены и недоступны.' : 'У этого домика свободны все даты.';
         render();
       })
