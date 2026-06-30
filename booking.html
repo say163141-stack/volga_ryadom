@@ -58,6 +58,14 @@
           <p class="cal-status" id="calStatus">Загружаем занятые даты…</p>
         </div>
         <form class="booking-form" id="bookingForm" novalidate>
+          <label class="field"><span>Домик</span>
+            <select id="houseSelect" name="object_id">
+              <option value="house_1">Первый нижний</option>
+              <option value="house_2">Второй нижний</option>
+              <option value="house_3">Первый верхний</option>
+              <option value="house_4">Второй верхний</option>
+            </select>
+          </label>
           <div class="field-row">
             <label class="field"><span>Заезд</span><input type="date" id="checkIn" name="check_in" required readonly></label>
             <label class="field"><span>Выезд</span><input type="date" id="checkOut" name="check_out" required readonly></label>

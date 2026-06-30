@@ -73,29 +73,50 @@ const MONTHS=['Январь','Февраль','Март','Апрель','Май'
   const calNext=document.getElementById('calNext');
   const inCheckIn=document.getElementById('checkIn');
   const inCheckOut=document.getElementById('checkOut');
+  const houseSelect=document.getElementById('houseSelect');
 
   const today=new Date(); today.setHours(0,0,0,0);
   let view=new Date(today.getFullYear(), today.getMonth(), 1);
-  let busy=new Set();         // занятые ночи (YMD)
+  let busy=new Set();         // занятые ночи (YMD) для выбранного домика
   let selStart=null, selEnd=null;
 
-  // Загрузка занятых дат
-  fetch(BUSY_DATES_WEBHOOK, {method:'GET'})
-    .then(r=> r.ok ? r.json() : Promise.reject(r.status))
-    .then(data=>{
-      // ожидаем {busy_dates:["2026-07-10", ...]} либо массив диапазонов {check_in,check_out,status}
-      let dates=[];
-      if(Array.isArray(data)) dates=collectFromRanges(data);
-      else if(data && Array.isArray(data.busy_dates)) dates=data.busy_dates;
-      else if(data && Array.isArray(data.bookings)) dates=collectFromRanges(data.bookings);
-      busy=new Set(dates);
-      calStatus.textContent = busy.size ? 'Занятые даты отмечены и недоступны.' : 'Свободны все даты.';
-      render();
-    })
-    .catch(()=>{
-      calStatus.textContent='Не удалось загрузить занятые даты — выбор доступен, занятость подтвердим в Telegram.';
-      render();
-    });
+  // Поддержка глубокой ссылки ?house=house_2
+  if(houseSelect){
+    const params=new URLSearchParams(location.search);
+    const houseParam=params.get('house');
+    if(houseParam && Array.from(houseSelect.options).some(o=>o.value===houseParam)){
+      houseSelect.value=houseParam;
+    }
+  }
+
+  function currentHouse(){ return houseSelect ? houseSelect.value : 'house_1'; }
+
+  function loadBusyDates(){
+    selStart=null; selEnd=null;
+    inCheckIn.value=''; inCheckOut.value='';
+    calStatus.textContent='Загружаем занятые даты…';
+    busy=new Set();
+    render();
+    fetch(BUSY_DATES_WEBHOOK+'?object_id='+encodeURIComponent(currentHouse()), {method:'GET'})
+      .then(r=> r.ok ? r.json() : Promise.reject(r.status))
+      .then(data=>{
+        // ожидаем {busy_dates:["2026-07-10", ...]} либо массив диапазонов {check_in,check_out,status}
+        let dates=[];
+        if(Array.isArray(data)) dates=collectFromRanges(data);
+        else if(data && Array.isArray(data.busy_dates)) dates=data.busy_dates;
+        else if(data && Array.isArray(data.bookings)) dates=collectFromRanges(data.bookings);
+        busy=new Set(dates);
+        calStatus.textContent = busy.size ? 'Занятые даты этого домика отмечены и недоступны.' : 'У этого домика свободны все даты.';
+        render();
+      })
+      .catch(()=>{
+        calStatus.textContent='Не удалось загрузить занятые даты — выбор доступен, занятость подтвердим в Telegram.';
+        render();
+      });
+  }
+
+  loadBusyDates();
+  houseSelect && houseSelect.addEventListener('change', loadBusyDates);
 
   function collectFromRanges(rows){
     const out=[];
@@ -172,12 +193,13 @@ const MONTHS=['Январь','Февраль','Март','Апрель','Май'
   if(!form) return;
   const note=document.getElementById('formNote');
   const btn=document.getElementById('bookingSubmit');
+  const houseSelectEl=document.getElementById('houseSelect');
 
   form.addEventListener('submit', async (e)=>{
     e.preventDefault();
     note.className='form-note'; note.textContent='';
     const payload={
-      object_id:'house_1',
+      object_id:houseSelectEl ? houseSelectEl.value : 'house_1',
       check_in:form.check_in.value,
       check_out:form.check_out.value,
       guest_name:form.guest_name.value.trim(),
