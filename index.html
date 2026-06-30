@@ -1,423 +1,273 @@
 <!DOCTYPE html>
-
-<html class="scroll-smooth" lang="ru"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>ВОЛГА РЯДОМ | Глэмпинг на берегу Волги</title>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "outline-variant": "#bfc8cf",
-                        "surface-container-lowest": "#ffffff",
-                        "forest-shadow": "#2D391A",
-                        "on-secondary-container": "#546a2e",
-                        "surface-container-low": "#f1f4f8",
-                        "soft-sand": "#F1E3D3",
-                        "on-primary": "#ffffff",
-                        "on-primary-container": "#f5faff",
-                        "on-tertiary-fixed-variant": "#623f18",
-                        "on-tertiary": "#ffffff",
-                        "wood-bark": "#8B5E3C",
-                        "tertiary-fixed": "#ffdcbd",
-                        "error-container": "#ffdad6",
-                        "surface-container-highest": "#e0e3e7",
-                        "surface-bright": "#f7fafd",
-                        "river-deep": "#005F82",
-                        "on-secondary": "#ffffff",
-                        "outline": "#6f787f",
-                        "tertiary": "#785229",
-                        "on-surface-variant": "#3f484e",
-                        "secondary-fixed-dim": "#b6d088",
-                        "on-error-container": "#93000a",
-                        "warm-glow": "#FFD166",
-                        "primary-fixed": "#c4e7ff",
-                        "tertiary-container": "#946a3f",
-                        "on-background": "#181c1f",
-                        "tertiary-fixed-dim": "#f0bd8b",
-                        "error": "#ba1a1a",
-                        "secondary-fixed": "#d2eca2",
-                        "on-tertiary-container": "#fff8f4",
-                        "inverse-surface": "#2d3134",
-                        "background": "#f7fafd",
-                        "surface-container": "#ebeef2",
-                        "on-primary-fixed-variant": "#004c69",
-                        "surface": "#f7fafd",
-                        "secondary-container": "#cfe99f",
-                        "on-primary-fixed": "#001e2c",
-                        "inverse-primary": "#7cd0ff",
-                        "inverse-on-surface": "#eef1f5",
-                        "on-tertiary-fixed": "#2c1600",
-                        "primary": "#006184",
-                        "surface-dim": "#d7dade",
-                        "on-secondary-fixed-variant": "#394d14",
-                        "pine-green": "#4A5D23",
-                        "on-error": "#ffffff",
-                        "primary-fixed-dim": "#7cd0ff",
-                        "on-surface": "#181c1f",
-                        "secondary": "#50652a",
-                        "primary-container": "#007ba7",
-                        "surface-container-high": "#e5e8ec",
-                        "surface-tint": "#00658b",
-                        "on-secondary-fixed": "#131f00",
-                        "surface-variant": "#e0e3e7"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "section-gap": "80px",
-                        "container-max": "1200px",
-                        "base": "8px",
-                        "margin-mobile": "16px",
-                        "margin-desktop": "40px",
-                        "gutter": "24px"
-                    },
-                    "fontFamily": {
-                        "headline-sm": ["Manrope"],
-                        "label-caps": ["Plus Jakarta Sans"],
-                        "display-lg": ["Manrope"],
-                        "body-md": ["Plus Jakarta Sans"],
-                        "display-lg-mobile": ["Manrope"],
-                        "price-tag": ["Manrope"],
-                        "headline-md": ["Manrope"],
-                        "body-lg": ["Plus Jakarta Sans"]
-                    },
-                    "fontSize": {
-                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                        "label-caps": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1em", "fontWeight": "600"}],
-                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                        "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "price-tag": ["22px", {"lineHeight": "28px", "fontWeight": "700"}],
-                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
-                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
-                    }
-                }
-            }
-        }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            display: inline-block;
-            vertical-align: middle;
-        }
-        .glow-effect {
-            box-shadow: 0 0 20px rgba(255, 209, 102, 0.4);
-        }
-        .bg-pattern {
-            background-image: radial-gradient(circle at 2px 2px, rgba(0, 95, 130, 0.05) 1px, transparent 0);
-            background-size: 40px 40px;
-        }
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ВОЛГА РЯДОМ — глэмпинг на берегу Волги</title>
+<meta name="description" content="Премиальный глэмпинг «Волга Рядом»: уютные домики с панорамными окнами, бассейн, баня, причал и SUP на берегу Волги. Бронирование онлайн.">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
 </head>
-<body class="bg-background text-on-surface font-body-md selection:bg-primary selection:text-white">
-<!-- TopNavBar -->
-<header class="docked full-width top-0 sticky z-50 bg-surface/90 backdrop-blur-md shadow-sm">
-<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
-<a class="text-headline-sm font-headline-sm font-bold text-river-deep tracking-tight" href="index.html">ВОЛГА РЯДОМ</a>
-<ul class="hidden md:flex gap-8 items-center">
-<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="house.html">Домики</a></li>
-<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="what_to_do.html">Чем заняться</a></li>
-<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="#reviews">Отзывы</a></li>
-<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-caps font-label-caps" href="contacts.html">Контакты</a></li>
-</ul>
-<div class="flex items-center gap-4">
-<a class="bg-primary text-white px-6 py-2.5 rounded-lg text-label-caps font-label-caps active:scale-95 transition-all duration-150 hover:bg-primary-container shadow-md flex items-center justify-center" href="booking.html">
-                    Забронировать
-                </a>
-<button class="md:hidden text-primary" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-<span class="material-symbols-outlined" data-icon="menu">menu</span>
-</button>
-</div>
-</nav>
-<!-- Mobile Menu -->
-<div class="hidden md:hidden absolute top-full left-0 w-full bg-surface border-t border-outline-variant p-6 shadow-xl z-40" id="mobile-menu">
-<div class="flex flex-col gap-4">
-<a class="text-on-surface font-label-caps py-2" href="house.html">Домики</a>
-<a class="text-on-surface font-label-caps py-2" href="what_to_do.html">Чем заняться</a>
-<a class="text-on-surface font-label-caps py-2" href="#reviews">Отзывы</a>
-<a class="text-on-surface font-label-caps py-2" href="contacts.html">Контакты</a>
-<a class="bg-primary text-white px-6 py-3 rounded-lg text-center font-label-caps" href="booking.html">Забронировать</a>
-</div>
-</div>
+<body>
+<!-- ШАПКА -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="Волга Рядом — на главную">
+      <img src="assets/img/logo.png" alt="Волга Рядом" class="brand-logo">
+    </a>
+    <nav class="nav-desktop" aria-label="Основная навигация">
+      <a href="house.html">Домики</a>
+      <a href="what_to_do.html">Чем заняться</a>
+      <a href="index.html#reviews">Отзывы</a>
+      <a href="contacts.html">Контакты</a>
+      <a href="booking.html" class="btn btn-primary btn-sm">Забронировать</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="navMobile" hidden>
+    <a href="house.html">Домики</a>
+    <a href="what_to_do.html">Чем заняться</a>
+    <a href="index.html#reviews">Отзывы</a>
+    <a href="contacts.html">Контакты</a>
+    <a href="booking.html" class="btn btn-primary">Забронировать</a>
+  </div>
 </header>
-<main class="bg-pattern">
-<!-- Hero Section -->
-<section class="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden reveal">
-<div class="absolute inset-0 z-0">
-<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDJfX6bMOJfAIpuir2sbtyiktnrRxO0mlOQun3OFwr4nfxUoyFPHJDFKFAEPk-L-0CKG-3qqC-Sq8Qpr1xudrHX2WJD0ZtQ2yotUOHNOTer-jX4Yazvux_0DlSojR2ypvSXjBBrUT-c9LuP4LfkrajP9UsFx1dDKhPPqmB1uEJ81ZYyKqQ3QT4tG2T7n_qGt17tjrOUxwGk1TJs_s1t8SkfPZH7ZTFfD4nRhsHuBwzRG5Ng0KWFpTQpOT8TEMjPEYXXCoRbNAqk56cP')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/20"></div>
-</div>
-<div class="relative z-10 w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-white md:text-on-surface">
-<div class="max-w-2xl bg-white/10 md:bg-white/60 backdrop-blur-xl p-8 md:p-12 rounded-xl border border-white/20 shadow-2xl">
-<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6 text-river-deep">Отдых на берегу Волги с городским комфортом</h1>
-<p class="font-body-lg text-body-lg mb-8 text-on-surface-variant">Премиальный глэмпинг: 4 уютных домика, бассейн и тишина соснового леса в шаге от великой реки.</p>
-<div class="flex flex-col sm:flex-row gap-4">
-<a class="bg-primary text-white px-8 py-4 rounded-lg font-label-caps text-center hover:shadow-lg hover:-translate-y-1 transition-all glow-effect" href="booking.html">Забронировать</a>
-<a class="bg-white/80 text-forest-shadow px-8 py-4 rounded-lg font-label-caps text-center border border-outline-variant hover:bg-white transition-all" href="what_to_do.html">Узнать больше</a>
-</div>
-</div>
-</div>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" style="background-image:url('assets/img/overview_night.jpg')"></div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <p class="eyebrow eyebrow-light">База отдыха на берегу Волги</p>
+    <h1>Отдых на берегу Волги<br>с городским комфортом</h1>
+    <p class="hero-sub">Уютные домики с панорамными окнами, бассейн, баня и тишина у самой воды — в шаге от великой реки.</p>
+    <div class="hero-actions">
+      <a href="booking.html" class="btn btn-primary btn-lg">Забронировать</a>
+      <a href="#gallery" class="btn btn-ghost btn-lg">Смотреть фото</a>
+    </div>
+  </div>
 </section>
-<!-- Cabins Section -->
-<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal" id="cabins">
-<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-<div>
-<span class="text-primary font-label-caps text-label-caps tracking-widest uppercase mb-2 block">Проживание</span>
-<h2 class="font-headline-md text-headline-md text-forest-shadow">Наши уютные дома</h2>
-</div>
-<div class="text-on-surface-variant max-w-md">
-                    Все домики оборудованы панорамными окнами, кондиционерами и собственными террасами для идеальных завтраков.
-                </div>
-</div>
-<div class="grid grid-cols-1 gap-gutter max-w-xl">
-<!-- Cabin Card 1 -->
-<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-outline-variant/30">
-<div class="relative h-72 overflow-hidden">
-<img alt="Интерьер стандартного домика" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmgdbiJ4X6rhu2xsimkR7WK2Q3dkkfIIAdHmpIugMX0UAz0xlo6hpLYnjVLR-O6ATSGTGbKIUI0vzuahdm9Ov0CVMzhAlewkzW4_nszwAqxOHdrCmSdtJWJyvarDgC1Y5EEn1WI7-M3aWOfPtxb0PjcKxmXU9bXDih15HkspWD0SDXDilpzYmpnMTwQ1XORpeNg8dowjbNibXESftnx1uQB41i_J4PJlAkh9V-42ig5bq5HZvCjavE1GMhq_sKydqmqSL7IHZRFqek"/>
-<div class="absolute top-4 left-4 bg-warm-glow text-forest-shadow px-3 py-1 rounded-full text-label-caps font-label-caps">От 7000₽</div>
-</div>
-<div class="p-6">
-<div class="flex justify-between items-center mb-4">
-<h3 class="font-headline-sm text-headline-sm text-river-deep">Стандартный домик</h3>
-<div class="flex gap-2">
-<span class="material-symbols-outlined text-pine-green text-[20px]" data-icon="wifi">wifi</span>
-<span class="material-symbols-outlined text-pine-green text-[20px]" data-icon="ac_unit">ac_unit</span>
-<span class="material-symbols-outlined text-pine-green text-[20px]" data-icon="moped">moped</span>
-</div>
-</div>
-<p class="text-on-surface-variant mb-6">Идеально для пары. Панорамный вид на склон и реку, уютная терраса и все удобства отеля в лесу.</p>
-<a class="block w-full py-3 rounded-lg border border-primary text-primary font-label-caps text-center hover:bg-primary hover:text-white transition-all" href="house.html">Подробнее и бронирование</a>
-</div>
-</div>
-</div>
+
+<!-- ГАЛЕРЕЯ-КАРУСЕЛЬ -->
+<section class="section" id="gallery">
+  <div class="container">
+    <p class="eyebrow">Галерея</p>
+    <h2 class="section-title">Как у нас</h2>
+    <p class="section-lead">Полистайте фотографии глэмпинга — днём и ночью, снаружи и внутри.</p>
+  </div>
+  <div class="carousel" id="carousel">
+    <div class="carousel-track" id="carouselTrack">
+      <figure class="slide"><img src="assets/img/overview_day.jpg" alt="Общий вид глэмпинга днём" loading="lazy"><figcaption>Четыре домика на склоне у реки</figcaption></figure>
+      <figure class="slide"><img src="assets/img/house_night.jpg" alt="Домик с террасой вечером" loading="lazy"><figcaption>Терраса с гирляндами на закате</figcaption></figure>
+      <figure class="slide"><img src="assets/img/house_night_2.jpg" alt="Домики с подсветкой ночью" loading="lazy"><figcaption>Вечерняя подсветка домиков</figcaption></figure>
+      <figure class="slide"><img src="assets/img/interior_1.jpg" alt="Интерьер: кухонная зона" loading="lazy"><figcaption>Кухонная зона и обеденный стол</figcaption></figure>
+      <figure class="slide"><img src="assets/img/interior_2.jpg" alt="Интерьер: спальня с панорамным окном" loading="lazy"><figcaption>Спальня с панорамным окном</figcaption></figure>
+      <figure class="slide"><img src="assets/img/interior_3.jpg" alt="Сервировка стола у окна" loading="lazy"><figcaption>Завтрак с видом на природу</figcaption></figure>
+      <figure class="slide"><img src="assets/img/overview_night.jpg" alt="Глэмпинг ночью с гирляндами" loading="lazy"><figcaption>Гирлянды между домиками</figcaption></figure>
+      <figure class="slide"><img src="assets/img/pool.jpg" alt="Бассейн под открытым небом" loading="lazy"><figcaption>Бассейн под открытым небом</figcaption></figure>
+      <figure class="slide"><img src="assets/img/pier.jpg" alt="SUP-борд у причала на Волге" loading="lazy"><figcaption>Причал и SUP на берегу Волги</figcaption></figure>
+      <figure class="slide"><img src="assets/img/activities.jpg" alt="Сапборды и велосипеды" loading="lazy"><figcaption>Сапборды и велосипеды для гостей</figcaption></figure>
+    </div>
+    <button class="carousel-btn prev" id="carouselPrev" aria-label="Предыдущее фото"><span class="material-symbols-outlined">chevron_left</span></button>
+    <button class="carousel-btn next" id="carouselNext" aria-label="Следующее фото"><span class="material-symbols-outlined">chevron_right</span></button>
+  </div>
+  <div class="carousel-dots" id="carouselDots" aria-hidden="true"></div>
 </section>
-<!-- Activities Grid (Bento Style) -->
-<section class="bg-forest-shadow py-section-gap text-white reveal" id="activities">
-<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-<div class="mb-12 text-center">
-<h2 class="font-headline-md text-headline-md mb-4">Развлечения и отдых</h2>
-<p class="text-soft-sand/80 max-w-xl mx-auto">Мы создали все условия, чтобы ваш отдых был наполнен только приятными моментами.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-auto md:h-[600px]">
-<div class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-2xl">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAcZaELePpny0fwPK4QN2NYzGd5dIHaOgxZqpE9eqL5tvFHfi727Ty86RFiN-rYthOUKLws9lsdKwa92eFtVy0UsNaSl5WEqDfkABRbKdnBFM1zDRrfkAGrV5AZqb1wS80G0SgeYaAod_HNpaXxHDQXnr81RZ858JSPN8lYooCa1LnBFYwi-sMMMBVvkClRpFf43QuhGHq1hqWOsjnhoOOtVrqXkEy4bI9VUVXxOE5F-W0ID2DRZNXgswJ2NBy-hEIpgbe3bqw-D-hI')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-8">
-<span class="bg-warm-glow text-forest-shadow px-3 py-1 rounded-full text-[12px] font-bold mb-3 inline-block">ГОРЯЧЕЕ ПРЕДЛОЖЕНИЕ</span>
-<h3 class="text-headline-sm font-headline-sm mb-2">Баня на дровах</h3>
-<p class="text-soft-sand/80">5000₽ за 2 часа релакса. Парная с видом на лес.</p>
-</div>
-</div>
-<div class="md:col-span-2 relative group overflow-hidden rounded-2xl">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBc8Y1Qz5XRRDqCb0H1-7H02lv_uTWJivCvrb2Ji73GgtmpMYzAY2WJDzh3Bs8eKW4S-pJ5WD1odV98EtLEuI8mg3jhfDIRgQtI1KjmCSngFNyC_42YdMbw0dFRklOJvRrkADxGSpdTrNHXAP7vlzoes4INxcvYfXl-usXsScr1EqlLBzjGgOROQIogDXyGR7SOjfGYW2j2nYJpChppIQSMXixUo0iNh98j_V4PHr8Mkbp_W-mA1IlbOH2Xwhc-JwEkJsnTnZ0WeNYC')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-6">
-<h3 class="text-headline-sm font-headline-sm">Бассейн</h3>
-<p class="text-soft-sand/80">Освежающий отдых под открытым небом.</p>
-</div>
-</div>
-<div class="relative group overflow-hidden rounded-2xl">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD3altWK-v976YOT0XOgZ_z6JmOYUu7AojVzS_rNOemn76kb3qJIMZ3IsItKWHpixXg5OCnyJ49wuP-yB4z9rbby3F9aJ2-o92DCuMJ9x77zIHGvATYz3rdGL4IOn8mH43OJT2zE_wsbzxf3FAFKJ79TaeA_AxxXceXRHfU3iO7pYtSAZuPNb87_7u1sZUXaylFFR7CFSavhq5N5WSl-p40gvZIMMjbvFvP7F7kULDwz5x02pOqeiWb64kMrTrkMN5b-utOpjzxfj_o')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-4">
-<h3 class="font-bold text-lg">Зона барбекю</h3>
-</div>
-</div>
-<div class="relative group overflow-hidden rounded-2xl">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBA2ctCTEvpk1QxUOrghvXFQd8Tc-CwCuOfB7sT3ro2551ewxXeh9qq9Rtmk5A5Ma4w_xuP6-jN_ih9xEzzoWdwNWA5XPoFBuxONkoq6_f6znxhqcyiJIp3LFTFrmqhNsnxk8NwjBSGkqMun8Jv-qLz2BaxvpAejteoC97QPJ0_cFN740sLJD0QURX6zrcbMOPmIbCjyhko23Abe3hX7dTw1b-PwJo4S3ulUJaU2CsXI6rpIfxa3SujmeTckBMjL2r5xGvNJ5iPyLKQ')"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-4">
-<h3 class="font-bold text-lg">Причал</h3>
-</div>
-</div>
-</div>
-</div>
+
+<!-- ДОМИКИ -->
+<section class="section section-alt">
+  <div class="container">
+    <p class="eyebrow">Проживание</p>
+    <h2 class="section-title">Наши домики</h2>
+    <p class="section-lead">Панорамные окна, кондиционер и собственная терраса в каждом из четырёх домиков.</p>
+    <div class="cards-3">
+      <article class="card">
+        <div class="card-img"><img src="assets/img/interior_2.jpg" alt="Интерьер домика" loading="lazy"></div>
+        <div class="card-body">
+          <span class="price-tag">от 7000 ₽ / ночь</span>
+          <h3>Стандартный домик</h3>
+          <p>Идеально для пары: панорамный вид на склон и реку, уютная терраса и все удобства.</p>
+          <div class="amenities"><span class="material-symbols-outlined">wifi</span><span class="material-symbols-outlined">ac_unit</span><span class="material-symbols-outlined">deck</span></div>
+          <a href="house.html" class="btn btn-outline btn-block">Подробнее</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-img"><img src="assets/img/house_night.jpg" alt="Домик вечером" loading="lazy"></div>
+        <div class="card-body">
+          <span class="price-tag">от 9000 ₽ / ночь</span>
+          <h3>Домик с видом на воду</h3>
+          <p>Лучшие закаты и вечерняя подсветка. Терраса с гирляндами — для самых тёплых вечеров.</p>
+          <div class="amenities"><span class="material-symbols-outlined">wifi</span><span class="material-symbols-outlined">ac_unit</span><span class="material-symbols-outlined">outdoor_grill</span></div>
+          <a href="house.html" class="btn btn-outline btn-block">Подробнее</a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-img"><img src="assets/img/interior_1.jpg" alt="Кухонная зона" loading="lazy"></div>
+        <div class="card-body">
+          <span class="price-tag">для компании</span>
+          <h3>Для большой компании</h3>
+          <p>Забронируйте несколько домиков рядом — общая зона барбекю и бассейн в вашем распоряжении.</p>
+          <div class="amenities"><span class="material-symbols-outlined">groups</span><span class="material-symbols-outlined">outdoor_grill</span><span class="material-symbols-outlined">pool</span></div>
+          <a href="booking.html" class="btn btn-outline btn-block">Забронировать</a>
+        </div>
+      </article>
+    </div>
+  </div>
 </section>
-<!-- CTA Section -->
-<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal">
-<div class="bg-river-deep rounded-3xl p-12 text-white relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12">
-<div class="relative z-10 max-w-xl">
-<h2 class="text-display-lg-mobile md:text-headline-md font-headline-md mb-6">Готовы к перезагрузке?</h2>
-<p class="text-primary-fixed/80 text-body-lg mb-8">Забронируйте отдых прямо сейчас. Мы свяжемся с вами в Telegram для подтверждения деталей.</p>
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-warm-glow text-[40px]" data-icon="send">send</span>
-<div>
-<p class="font-bold">Поддержка в Telegram</p>
-<p class="text-sm opacity-70">Отвечаем в течение 5 минут</p>
-</div>
-</div>
-</div>
-<div class="relative z-10 w-full md:w-auto">
-<form class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
-<div class="space-y-4">
-<div>
-<label class="block text-forest-shadow font-label-caps text-xs mb-1">Дата заезда</label>
-<input class="w-full border-soft-sand rounded-lg focus:ring-primary focus:border-primary text-on-surface" type="date"/>
-</div>
-<div>
-<label class="block text-forest-shadow font-label-caps text-xs mb-1">Количество гостей</label>
-<select class="w-full border-soft-sand rounded-lg focus:ring-primary focus:border-primary text-on-surface">
-<option>2 взрослых</option>
-<option>Семья (2+2)</option>
-<option>Один гость</option>
-</select>
-</div>
-<button class="w-full bg-primary py-4 rounded-lg font-label-caps text-white hover:bg-primary-container transition-all shadow-lg active:scale-95" type="submit">Проверить наличие</button>
-</div>
-</form>
-</div>
-<!-- Decoration -->
-<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
-</div>
+
+<!-- РАЗВЛЕЧЕНИЯ -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Отдых</p>
+    <h2 class="section-title">Развлечения на базе</h2>
+    <p class="section-lead">Всё для активного и спокойного отдыха — в нескольких шагах от домика.</p>
+    <div class="features">
+      <div class="feature feature-hot">
+        <span class="material-symbols-outlined">local_fire_department</span>
+        <h3>Баня на дровах</h3>
+        <p>5000 ₽ за 2 часа. Парная с видом на лес.</p>
+      </div>
+      <div class="feature">
+        <span class="material-symbols-outlined">pool</span>
+        <h3>Бассейн</h3>
+        <p>Освежающий отдых под открытым небом.</p>
+      </div>
+      <div class="feature">
+        <span class="material-symbols-outlined">surfing</span>
+        <h3>SUP и велосипеды</h3>
+        <p>Прокат сапбордов и горных велосипедов.</p>
+      </div>
+      <div class="feature">
+        <span class="material-symbols-outlined">sailing</span>
+        <h3>Причал</h3>
+        <p>Выход к воде и место для рыбалки.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- БРОНИРОВАНИЕ (быстрая проверка дат) -->
+<section class="section section-booking" id="quick-booking">
+  <div class="container booking-grid">
+    <div class="booking-intro">
+      <p class="eyebrow">Бронирование</p>
+      <h2 class="section-title">Готовы к перезагрузке?</h2>
+      <p class="section-lead">Выберите даты и оставьте заявку — мы свяжемся с вами в Telegram для подтверждения. Занятые даты в календаре отмечены и недоступны для выбора.</p>
+      <ul class="booking-points">
+        <li><span class="material-symbols-outlined">check_circle</span> Подтверждение в Telegram</li>
+        <li><span class="material-symbols-outlined">check_circle</span> Отвечаем в течение 15 минут</li>
+        <li><span class="material-symbols-outlined">check_circle</span> Без предоплаты на сайте</li>
+      </ul>
+    </div>
+    <div class="booking-card">
+      <!-- Календарь занятых дат -->
+      <div class="cal" id="cal">
+        <div class="cal-head">
+          <button class="cal-nav" id="calPrev" aria-label="Предыдущий месяц"><span class="material-symbols-outlined">chevron_left</span></button>
+          <span class="cal-title" id="calTitle">—</span>
+          <button class="cal-nav" id="calNext" aria-label="Следующий месяц"><span class="material-symbols-outlined">chevron_right</span></button>
+        </div>
+        <div class="cal-weekdays"><span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span></div>
+        <div class="cal-grid" id="calGrid"></div>
+        <p class="cal-legend"><span class="dot dot-free"></span> Свободно <span class="dot dot-busy"></span> Занято <span class="dot dot-sel"></span> Ваш выбор</p>
+        <p class="cal-status" id="calStatus">Загружаем занятые даты…</p>
+      </div>
+      <form class="booking-form" id="bookingForm" novalidate>
+        <div class="field-row">
+          <label class="field">
+            <span>Заезд</span>
+            <input type="date" id="checkIn" name="check_in" required readonly>
+          </label>
+          <label class="field">
+            <span>Выезд</span>
+            <input type="date" id="checkOut" name="check_out" required readonly>
+          </label>
+        </div>
+        <label class="field">
+          <span>Ваше имя</span>
+          <input type="text" id="guestName" name="guest_name" placeholder="Иван" required>
+        </label>
+        <label class="field">
+          <span>Телефон</span>
+          <input type="tel" id="phone" name="phone" placeholder="+7 900 000-00-00" required>
+        </label>
+        <label class="field">
+          <span>Гостей</span>
+          <select id="guests" name="guests">
+            <option value="1">1 гость</option>
+            <option value="2" selected>2 гостя</option>
+            <option value="3">3 гостя</option>
+            <option value="4">4 гостя</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Комментарий <small>(необязательно)</small></span>
+          <textarea id="comment" name="comment" rows="2" placeholder="Пожелания к заезду"></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block btn-lg" id="bookingSubmit">Отправить заявку</button>
+        <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ОТЗЫВЫ -->
+<section class="section section-alt" id="reviews">
+  <div class="container">
+    <p class="eyebrow">Отзывы гостей</p>
+    <h2 class="section-title">Что говорят наши гости</h2>
+    <p class="section-lead"><span class="material-symbols-outlined star">star</span> 4.9 — по отзывам гостей</p>
+    <div class="cards-3">
+      <blockquote class="review">
+        <div class="stars">★★★★★</div>
+        <p>«Невероятное место! Домик очень уютный, вид на Волгу захватывает дух. Баня на дровах — отдельный кайф. Обязательно вернёмся!»</p>
+        <footer><span class="avatar">А</span> Анна К. · Июль 2024</footer>
+      </blockquote>
+      <blockquote class="review">
+        <div class="stars">★★★★★</div>
+        <p>«Приехали на годовщину. Всё продумано: терраса с видом, уютный интерьер, тишина. Персонал очень отзывчивый.»</p>
+        <footer><span class="avatar">М</span> Михаил Р. · Август 2024</footer>
+      </blockquote>
+      <blockquote class="review">
+        <div class="stars">★★★★★</div>
+        <p>«Лучший отдых за последние годы! SUP на рассвете — это что-то особенное. Бассейн чистый, всё на уровне.»</p>
+        <footer><span class="avatar">Е</span> Екатерина В. · Сентябрь 2024</footer>
+      </blockquote>
+    </div>
+  </div>
 </section>
 </main>
-<!-- Reviews Section -->
-<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal" id="reviews">
-<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-<div>
-<span class="text-primary font-label-caps text-label-caps tracking-widest uppercase mb-2 block">Отзывы гостей</span>
-<h2 class="font-headline-md text-headline-md text-forest-shadow">Что говорят наши гости</h2>
-</div>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-warm-glow" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="font-bold text-xl text-river-deep">4.9</span>
-<span class="text-on-surface-variant">(48 отзывов)</span>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/30 shadow-sm">
-<div class="flex gap-1 mb-4">
-<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<p class="text-on-surface-variant mb-6">"Невероятное место! Домик оказался очень уютным, вид на Волгу просто захватывает дух. Баня на дровах — отдельный кайф. Обязательно вернёмся!"</p>
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">А</div>
-<div>
-<p class="font-bold text-on-surface">Анна К.</p>
-<p class="text-sm text-on-surface-variant">Июль 2024</p>
-</div>
-</div>
-</div>
-<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/30 shadow-sm">
-<div class="flex gap-1 mb-4">
-<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<p class="text-on-surface-variant mb-6">"Приехали с женой на годовщину. Всё продумано до мелочей: и терраса с видом, и уютный интерьер, и тишина соснового леса. Персонал очень отзывчивый."</p>
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-full bg-pine-green/20 flex items-center justify-center text-pine-green font-bold">М</div>
-<div>
-<p class="font-bold text-on-surface">Михаил Р.</p>
-<p class="text-sm text-on-surface-variant">Август 2024</p>
-</div>
-</div>
-</div>
-<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/30 shadow-sm">
-<div class="flex gap-1 mb-4">
-<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-warm-glow text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<p class="text-on-surface-variant mb-6">"Лучший отдых за последние годы! SUP-бординг на рассвете — это что-то особенное. Бассейн чистый, инфраструктура на уровне. Рекомендую всем!"</p>
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-full bg-warm-glow/30 flex items-center justify-center text-tertiary font-bold">Е</div>
-<div>
-<p class="font-bold text-on-surface">Екатерина В.</p>
-<p class="text-sm text-on-surface-variant">Сентябрь 2024</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Footer -->
-<footer class="bg-forest-shadow text-soft-sand py-12 border-t border-white/10">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-<div class="col-span-1 md:col-span-2">
-<a class="text-headline-md font-headline-md text-soft-sand mb-6 block" href="index.html">ВОЛГА РЯДОМ</a>
-<p class="text-soft-sand/60 max-w-sm mb-8">Премиальный глэмпинг на берегу Волги. Место, где природа встречается с комфортом. Мы создаем пространство для вашего вдохновения.</p>
-<div class="flex gap-4">
-<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-warm-glow hover:text-forest-shadow transition-all" href="#"><span class="material-symbols-outlined" data-icon="public">public</span></a>
-<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-warm-glow hover:text-forest-shadow transition-all" href="mailto:info@volgaryadom.ru"><span class="material-symbols-outlined" data-icon="mail">mail</span></a>
-</div>
-</div>
-<div>
-<h4 class="text-label-caps font-label-caps text-white mb-6">Навигация</h4>
-<ul class="space-y-4">
-<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 inline-block" href="house.html">Наши домики</a></li>
-<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 inline-block" href="what_to_do.html">Чем заняться</a></li>
-<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 inline-block" href="booking.html">Забронировать</a></li>
-<li><a class="text-soft-sand/80 hover:text-white transition-colors hover:translate-x-1 inline-block" href="#">Политика конфиденциальности</a></li>
-</ul>
-</div>
-<div>
-<h4 class="text-label-caps font-label-caps text-white mb-6">Контакты</h4>
-<ul class="space-y-4">
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-warm-glow" data-icon="location_on">location_on</span>
-<a class="text-soft-sand/80 hover:text-white transition-colors" href="contacts.html">Тверская область, берег Волги</a>
-</li>
-<li class="flex items-center gap-3">
-<span class="material-symbols-outlined text-warm-glow" data-icon="phone">phone</span>
-<a class="text-soft-sand/80 hover:text-white transition-colors" href="tel:+79001234567">+7 (900) 123-45-67</a>
-</li>
-</ul>
-</div>
-</div>
-<div class="mt-12 pt-8 border-t border-white/5 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center text-soft-sand/40 text-sm">
-            © 2024 Волга Рядом Глэмпинг. Все права защищены. Природа, Премиум, Уют.
-        </div>
+
+<!-- ПОДВАЛ -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img src="assets/img/logo.png" alt="Волга Рядом" class="footer-logo">
+      <p>Премиальный глэмпинг на берегу Волги. Место, где природа встречается с комфортом.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Навигация</h4>
+      <a href="house.html">Наши домики</a>
+      <a href="what_to_do.html">Чем заняться</a>
+      <a href="booking.html">Забронировать</a>
+      <a href="contacts.html">Контакты</a>
+    </div>
+    <div class="footer-col">
+      <h4>Контакты</h4>
+      <a href="contacts.html"><span class="material-symbols-outlined">location_on</span> Самарская обл., с. Рождествено</a>
+      <a href="tel:+79270000000"><span class="material-symbols-outlined">call</span> +7 (927) 000-00-00</a>
+      <a href="https://t.me/volga_ryadom_bot" target="_blank" rel="noopener"><span class="material-symbols-outlined">send</span> Telegram</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">© 2024–2026 Глэмпинг «Волга Рядом». Природа, премиум, уют.</div>
 </footer>
-<script>
-        // Intersection Observer for reveal animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const revealElements = document.querySelectorAll('.reveal');
-            revealElements.forEach(el => observer.observe(el));
-            
-            // Immediate reveal for first section if visible
-            const firstSection = document.querySelector('section');
-            if (firstSection) firstSection.classList.add('active');
-        });
-    </script>
-</body></html>
+<script src="assets/app.js"></script>
+</body>
+</html>
