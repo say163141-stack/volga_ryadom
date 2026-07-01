@@ -234,6 +234,7 @@ const MONTHS=['Январь','Февраль','Март','Апрель','Май'
       guest_name:form.guest_name.value.trim(),
       phone:form.phone.value.trim(),
       guests:Number(form.guests.value),
+      extra_bed:form.extra_bed ? Number(form.extra_bed.value) : 0,
       comment:form.comment.value.trim()
     };
     if(!payload.check_in||!payload.check_out){ note.classList.add('err'); note.textContent='Выберите даты заезда и выезда в календаре.'; return; }

@@ -90,7 +90,7 @@
       <article class="card">
         <div class="card-img"><img src="assets/img/interior_2.jpg" alt="Интерьер домика" loading="lazy"></div>
         <div class="card-body">
-          <span class="price-tag">от 7000 ₽ / ночь</span>
+          <span class="price-tag">от 7000 ₽ / ночь в будни</span>
           <h3>Стандартный домик</h3>
           <p>Идеально для пары: панорамный вид на склон и реку, уютная терраса и все удобства.</p>
           <div class="amenities"><span class="material-symbols-outlined">wifi</span><span class="material-symbols-outlined">ac_unit</span><span class="material-symbols-outlined">deck</span></div>
@@ -100,8 +100,8 @@
       <article class="card">
         <div class="card-img"><img src="assets/img/house_night.jpg" alt="Домик вечером" loading="lazy"></div>
         <div class="card-body">
-          <span class="price-tag">от 9000 ₽ / ночь</span>
-          <h3>Домик с видом на воду</h3>
+          <span class="price-tag">от 9000 ₽ / ночь в выходные</span>
+          <h3>Стандартный домик</h3>
           <p>Лучшие закаты и вечерняя подсветка. Терраса с гирляндами — для самых тёплых вечеров.</p>
           <div class="amenities"><span class="material-symbols-outlined">wifi</span><span class="material-symbols-outlined">ac_unit</span><span class="material-symbols-outlined">outdoor_grill</span></div>
           <a href="house.html" class="btn btn-outline btn-block">Подробнее</a>
@@ -130,7 +130,7 @@
     <div class="features">
       <div class="feature feature-hot">
         <span class="material-symbols-outlined">local_fire_department</span>
-        <h3>Баня на дровах</h3>
+        <h3>Баня</h3>
         <p>5000 ₽ за 2 часа. Парная с видом на лес.</p>
       </div>
       <div class="feature">
@@ -179,6 +179,14 @@
         <p class="cal-status" id="calStatus">Загружаем занятые даты…</p>
       </div>
       <form class="booking-form" id="bookingForm" novalidate>
+        <label class="field"><span>Домик</span>
+          <select id="houseSelect" name="object_id">
+            <option value="house_1">Первый нижний</option>
+            <option value="house_2">Второй нижний</option>
+            <option value="house_3">Первый верхний</option>
+            <option value="house_4">Второй верхний</option>
+          </select>
+        </label>
         <div class="field-row">
           <label class="field">
             <span>Заезд</span>
@@ -202,8 +210,13 @@
           <select id="guests" name="guests">
             <option value="1">1 гость</option>
             <option value="2" selected>2 гостя</option>
-            <option value="3">3 гостя</option>
-            <option value="4">4 гостя</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Доп. место <small>(+1500 ₽/ночь)</small></span>
+          <select id="extraBed" name="extra_bed">
+            <option value="0">Не нужно</option>
+            <option value="1">Добавить доп. место (+1500 ₽/ночь)</option>
           </select>
         </label>
         <label class="field">
@@ -261,7 +274,7 @@
     <div class="footer-col">
       <h4>Контакты</h4>
       <a href="contacts.html"><span class="material-symbols-outlined">location_on</span> Самарская обл., с. Рождествено</a>
-      <a href="tel:+79270000000"><span class="material-symbols-outlined">call</span> +7 (927) 000-00-00</a>
+      <a href="tel:+79178108303"><span class="material-symbols-outlined">call</span> +7 (917) 810-83-03</a>
       <a href="https://t.me/volga_ryadom_bot" target="_blank" rel="noopener"><span class="material-symbols-outlined">send</span> Telegram</a>
     </div>
   </div>
