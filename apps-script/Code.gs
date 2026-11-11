@@ -11,6 +11,7 @@
 const SHARED_SECRET = 'ВСТАВЬТЕ_СЕКРЕТ_ИЗ_CONFIG_PHP';
 
 // Таблица заявок (эта же таблица) и лист внутри неё — по gid из адреса листа.
+const BOOKINGS_SPREADSHEET_ID = '1fUc_hww3xpLrIAAXUptIiNN6IpztdpgMkO5tNuUE5kc';
 const BOOKINGS_SHEET_GID = 1880647509;
 // Публичная таблица календаря (только домик/даты/статус, без ФИО) — её читает сайт.
 const CALENDAR_SPREADSHEET_ID = '1B3WqP-4xF3rgqtBeoYLwNJgzBQfuDcMqesXrgxcR_mI';
@@ -39,7 +40,7 @@ function book_(b) {
   const lock = LockService.getScriptLock();
   lock.waitLock(25000);
   try {
-    const bookings = sheetByGid_(SpreadsheetApp.getActive(), BOOKINGS_SHEET_GID);
+    const bookings = sheetByGid_(SpreadsheetApp.openById(BOOKINGS_SPREADSHEET_ID), BOOKINGS_SHEET_GID);
     const calendar = sheetByGid_(SpreadsheetApp.openById(CALENDAR_SPREADSHEET_ID), CALENDAR_SHEET_GID);
 
     // Повторная отправка той же заявки (например, из очереди) — не дублируем.
@@ -111,7 +112,7 @@ function out_(obj) {
 
 /** Запустите вручную один раз из редактора, чтобы выдать скрипту доступ к таблицам. Ничего не записывает. */
 function authorizeOnce() {
-  const a = sheetByGid_(SpreadsheetApp.getActive(), BOOKINGS_SHEET_GID).getName();
+  const a = sheetByGid_(SpreadsheetApp.openById(BOOKINGS_SPREADSHEET_ID), BOOKINGS_SHEET_GID).getName();
   const c = sheetByGid_(SpreadsheetApp.openById(CALENDAR_SPREADSHEET_ID), CALENDAR_SHEET_GID).getName();
   Logger.log('OK: ' + a + ' / ' + c);
 }

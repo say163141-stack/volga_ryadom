@@ -17,7 +17,13 @@ const H = ['object_id','guest_name','phone','check_in','check_out','guests','com
 const bookings = makeSheet(1880647509, 'Bookings', H, [['house_1','x','+7','2026-12-10','2026-12-12',2,'','BR-1','Первый нижний домик',2,0,0,'pending_payment','','','','TRUE','',0,'2026-11-01T00:00:00.000Z',0]]);
 const calendar = makeSheet(1360421097, 'Busy', ['object_id','check_in','check_out','status'], [['house_2','20.12.2026','22.12.2026','confirmed'],['house_3','2026-12-01','2026-12-05','cancelled']]);
 const ctx = {
-  SpreadsheetApp: { getActive: () => ({ getSheets: () => [bookings], getName: () => 'B' }), openById: () => ({ getSheets: () => [calendar], getName: () => 'C' }), flush() {} },
+  SpreadsheetApp: {
+    getActive: () => ({ getSheets: () => [bookings], getName: () => 'B' }),
+    openById: (id) => id === '1fUc_hww3xpLrIAAXUptIiNN6IpztdpgMkO5tNuUE5kc'
+      ? { getSheets: () => [bookings], getName: () => 'B' }
+      : { getSheets: () => [calendar], getName: () => 'C' },
+    flush() {}
+  },
   LockService: { getScriptLock: () => ({ waitLock() {}, releaseLock() {} }) },
   ContentService: { MimeType: { JSON: 'json' }, createTextOutput: (s) => ({ s, setMimeType() { return this; } }) },
   Logger: { log() {} },
