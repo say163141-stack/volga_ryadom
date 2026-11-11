@@ -1,0 +1,6 @@
+config.php
+volga-private/
+data/
+*.log
+tests/tmp/
+dist/

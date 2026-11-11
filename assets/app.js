@@ -1,10 +1,10 @@
 /* ============ ВОЛГА РЯДОМ — общий скрипт ============ */
-/* Адреса бэкенда n8n. Если путь вебхука другой — поменяйте здесь. */
-const N8N_BASE = "https://say163141.app.n8n.cloud";
-const BOOKING_WEBHOOK = N8N_BASE + "/webhook/volga-booking-create"; // приём заявки (расходует execution в n8n)
-/* Занятые даты читаются НАПРЯМУЮ из публичного Google Sheets (без n8n) —
-   так просмотр календаря не тратит execution-квоту n8n. Расходуется только бронирование. */
+/* Бэкенд — на этом же хостинге (REG.RU), папка /api. Ключей и токенов на фронте нет. */
+const BOOKING_API = "/api/booking.php";   // приём заявки
+const BUSY_API = "/api/busy.php";         // занятые даты (без персональных данных)
+/* Резерв: публичный лист календаря в Google Sheets — если /api/busy.php недоступен. */
 const BUSY_CALENDAR_CSV = "https://docs.google.com/spreadsheets/d/1B3WqP-4xF3rgqtBeoYLwNJgzBQfuDcMqesXrgxcR_mI/gviz/tq?tqx=out:csv&gid=1360421097";
+const FORM_OPENED_AT = Date.now();        // антиспам: сервер отклоняет формы, заполненные за 1–2 секунды
 const TELEGRAM_LINK = "https://t.me/volgaryadom";
 
 /* Простой парсер CSV для гугл-таблиц (значения в кавычках, запятая-разделитель) */
@@ -115,6 +115,21 @@ const MONTHS=['Январь','Февраль','Март','Апрель','Май'
 
   function currentHouse(){ return houseSelect ? houseSelect.value : 'house_1'; }
 
+  /* Сначала свой сервер (/api/busy.php), при сбое — публичный CSV из Google Sheets */
+  function loadBookings(){
+    return fetch(BUSY_API+'?_='+Date.now(), {cache:'no-store'})
+      .then(r=> r.ok ? r.json() : Promise.reject(r.status))
+      .then(d=> (d && d.ok && Array.isArray(d.bookings)) ? d.bookings : Promise.reject('bad'))
+      .catch(()=> fetch(BUSY_CALENDAR_CSV+'&_='+Date.now(), {method:'GET', cache:'no-store'})
+        .then(r=> r.ok ? r.text() : Promise.reject(r.status))
+        .then(text=>{
+          const rows=parseCSV(text);
+          const header=rows.shift()||[];
+          const idx={object_id:header.indexOf('object_id'), check_in:header.indexOf('check_in'), check_out:header.indexOf('check_out'), status:header.indexOf('status')};
+          return rows.map(r=>({object_id:r[idx.object_id], check_in:r[idx.check_in], check_out:r[idx.check_out], status:r[idx.status]}));
+        }));
+  }
+
   function loadBusyDates(){
     selStart=null; selEnd=null;
     inCheckIn.value=''; inCheckOut.value='';
@@ -122,18 +137,10 @@ const MONTHS=['Январь','Февраль','Март','Апрель','Май'
     busy=new Set();
     render();
     const house=currentHouse();
-    fetch(BUSY_CALENDAR_CSV+'&_='+Date.now(), {method:'GET', cache:'no-store'})
-      .then(r=> r.ok ? r.text() : Promise.reject(r.status))
-      .then(text=>{
-        const rows=parseCSV(text);
-        const header=rows.shift()||[];
-        const idx={object_id:header.indexOf('object_id'), check_in:header.indexOf('check_in'), check_out:header.indexOf('check_out'), status:header.indexOf('status')};
-        const bookings=rows.map(r=>({
-          object_id:r[idx.object_id],
-          check_in:r[idx.check_in],
-          check_out:r[idx.check_out],
-          status:r[idx.status]
-        })).filter(b=>b.object_id===house);
+    loadBookings()
+      .then(all=>{
+        if(house!==currentHouse()) return;
+        const bookings=all.filter(b=>b.object_id===house);
         busy=new Set(collectFromRanges(bookings));
         calStatus.textContent = busy.size ? 'Занятые даты этого домика отмечены и недоступны.' : 'У этого домика свободны все даты.';
         render();
@@ -235,7 +242,9 @@ const MONTHS=['Январь','Февраль','Март','Апрель','Май'
       phone:form.phone.value.trim(),
       guests:Number(form.guests.value),
       extra_bed:form.extra_bed ? Number(form.extra_bed.value) : 0,
-      comment:form.comment.value.trim()
+      comment:form.comment.value.trim(),
+      website:form.website ? form.website.value : '', // ловушка для ботов, люди её не видят
+      form_ts:FORM_OPENED_AT
     };
     if(!payload.check_in||!payload.check_out){ note.classList.add('err'); note.textContent='Выберите даты заезда и выезда в календаре.'; return; }
     if(!payload.guest_name){ note.classList.add('err'); note.textContent='Укажите ваше имя.'; return; }
@@ -243,7 +252,7 @@ const MONTHS=['Январь','Февраль','Март','Апрель','Май'
 
     btn.disabled=true; const orig=btn.textContent; btn.textContent='Отправляем…';
     try{
-      const res=await fetch(BOOKING_WEBHOOK,{
+      const res=await fetch(BOOKING_API,{
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify(payload)
@@ -251,11 +260,15 @@ const MONTHS=['Январь','Февраль','Март','Апрель','Май'
       let data={}; try{ data=await res.json(); }catch(_){}
       if(res.status===200 && data.success){
         note.classList.add('ok');
-        note.textContent='Заявка принята! Мы свяжемся с вами в Telegram для подтверждения.';
+        note.textContent='Заявка принята! Мы свяжемся с вами для подтверждения и предоплаты.';
         form.reset();
+        if(houseSelectEl) houseSelectEl.dispatchEvent(new Event('change')); // обновить календарь
       } else if(res.status===409 || data.available===false){
         note.classList.add('err');
         note.textContent='Эти даты уже заняты. Пожалуйста, выберите другой период.';
+      } else if(data.message){
+        note.classList.add('err');
+        note.textContent=data.message;
       } else {
         note.classList.add('err');
         note.textContent='Не удалось отправить заявку. Напишите нам в Telegram — поможем.';
