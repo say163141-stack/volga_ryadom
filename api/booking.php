@@ -65,6 +65,11 @@ if ($name === '') $errors[] = 'guest_name';
 $digits = preg_replace('/\D/', '', $phone);
 if (strlen($digits) < 10 || strlen($digits) > 15) $errors[] = 'phone';
 if ($guests < 1 || $guests > $cfg['max_guests']) $errors[] = 'guests';
+$consentRaw = isset($in['pd_consent']) ? $in['pd_consent'] : '';
+$consent = ($consentRaw === true || $consentRaw === 1 || $consentRaw === '1' || $consentRaw === 'on' || $consentRaw === 'true');
+if (!$consent) {
+    volga_json(400, array('success' => false, 'error' => 'consent', 'fields' => array('pd_consent'), 'message' => 'Чтобы отправить заявку, подтвердите согласие на обработку персональных данных.'));
+}
 if ($errors) {
     volga_json(400, array('success' => false, 'error' => 'validation', 'fields' => $errors, 'message' => 'Проверьте даты, имя и телефон.'));
 }

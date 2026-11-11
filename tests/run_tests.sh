@@ -22,7 +22,7 @@ pass=0; fail=0
 TS=$(( ($(date +%s) - 10) * 1000 ))
 D1=$(date -d '+30 day' +%F); D2=$(date -d '+32 day' +%F); D3=$(date -d '+31 day' +%F); D4=$(date -d '+34 day' +%F); D5=$(date -d '+40 day' +%F); D6=$(date -d '+41 day' +%F)
 post(){ curl -s -o "$T/resp.json" -w "%{http_code}" -H 'Content-Type: application/json' -H 'Origin: http://127.0.0.1:8088' -d "$1" http://127.0.0.1:8088/api/booking.php; }
-body(){ echo "{\"object_id\":\"$1\",\"check_in\":\"$2\",\"check_out\":\"$3\",\"guest_name\":\"Тест Тестов\",\"phone\":\"+7 900 000-00-00\",\"guests\":2,\"extra_bed\":${5:-0},\"comment\":\"=HYPERLINK(1)\",\"website\":\"${6:-}\",\"form_ts\":${4:-$TS}}"; }
+body(){ echo "{\"object_id\":\"$1\",\"check_in\":\"$2\",\"check_out\":\"$3\",\"guest_name\":\"Тест Тестов\",\"phone\":\"+7 900 000-00-00\",\"guests\":2,\"extra_bed\":${5:-0},\"comment\":\"=HYPERLINK(1)\",\"website\":\"${6:-}\",\"form_ts\":${4:-$TS},\"pd_consent\":1}"; }
 check(){ local name="$1" want="$2" got="$3"; if [ "$want" = "$got" ]; then echo "PASS  $name ($got)"; pass=$((pass+1)); else echo "FAIL  $name: want $want got $got — $(cat "$T/resp.json")"; fail=$((fail+1)); fi; }
 
 c=$(post "$(body house_1 $D1 $D2)"); check "1. новая заявка принята" 200 "$c"
@@ -35,6 +35,10 @@ c=$(post "$(body house_3 $D5 $D6 0 0 spam)"); check "5. honeypot: тихий 200
 c=$(post "$(body house_3 $D5 $D6 $(( $(date +%s) * 1000 )))"); check "6. слишком быстро → 400" 400 "$c"
 c=$(post "$(body house_3 2020-01-01 2020-01-02)"); check "7. даты в прошлом → 400" 400 "$c"
 c=$(post '{"object_id":"house_9"}'); check "8. мусор → 400" 400 "$c"
+# Согласие 152-ФЗ: валидная заявка без галочки не должна приниматься.
+NOCONSENT=$(python3 -c "import json,sys; d=json.loads(sys.argv[1]); d.pop('pd_consent',None); print(json.dumps(d,ensure_ascii=False))" "$(body house_3 $D5 $D6)")
+c=$(post "$NOCONSENT"); check "23. без согласия на обработку ПДн → 400" 400 "$c"
+grep -q '"error":"consent"' "$T/resp.json" && echo "      ответ: $(cat "$T/resp.json")"
 c=$(curl -s -o "$T/resp.json" -w "%{http_code}" -H 'Origin: https://evil.example' -H 'Content-Type: application/json' -d "$(body house_3 $D5 $D6)" http://127.0.0.1:8088/api/booking.php); check "9. чужой Origin → 403" 403 "$c"
 c=$(curl -s -o "$T/resp.json" -w "%{http_code}" http://127.0.0.1:8088/api/lib.php); check "10. lib.php напрямую не исполняется (php -S игнорирует .htaccess; на Apache — 403)" 404 "$c"
 # Google недоступен → очередь, проверка по CSV, потом досылка

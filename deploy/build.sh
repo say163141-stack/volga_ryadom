@@ -4,7 +4,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 rm -rf dist && mkdir -p dist/api
-cp index.html house.html what_to_do.html booking.html contacts.html .htaccess dist/
+cp index.html house.html what_to_do.html booking.html contacts.html privacy.html .htaccess dist/
 cp -r assets dist/
 cp api/*.php api/.htaccess dist/api/
 echo "dist/ готов:"; find dist -type f | sort

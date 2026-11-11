@@ -244,11 +244,13 @@ const MONTHS=['Январь','Февраль','Март','Апрель','Май'
       extra_bed:form.extra_bed ? Number(form.extra_bed.value) : 0,
       comment:form.comment.value.trim(),
       website:form.website ? form.website.value : '', // ловушка для ботов, люди её не видят
-      form_ts:FORM_OPENED_AT
+      form_ts:FORM_OPENED_AT,
+      pd_consent: form.pd_consent && form.pd_consent.checked ? '1' : ''
     };
     if(!payload.check_in||!payload.check_out){ note.classList.add('err'); note.textContent='Выберите даты заезда и выезда в календаре.'; return; }
     if(!payload.guest_name){ note.classList.add('err'); note.textContent='Укажите ваше имя.'; return; }
     if(!payload.phone){ note.classList.add('err'); note.textContent='Укажите телефон для связи.'; return; }
+    if(!payload.pd_consent){ note.classList.add('err'); note.textContent='Чтобы отправить заявку, подтвердите согласие на обработку персональных данных.'; return; }
 
     btn.disabled=true; const orig=btn.textContent; btn.textContent='Отправляем…';
     try{

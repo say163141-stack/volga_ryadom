@@ -80,6 +80,10 @@
             <select id="extraBed" name="extra_bed"><option value="0">Не нужно</option><option value="1">Добавить доп. место (+1500 ₽/ночь)</option></select>
           </label>
           <label class="field"><span>Комментарий <small>(необязательно)</small></span><textarea id="comment" name="comment" rows="2" placeholder="Пожелания к заезду, доп. услуги (баня, SUP)"></textarea></label>
+          <label class="consent">
+            <input type="checkbox" id="pdConsent" name="pd_consent" value="1" required>
+            <span>Я соглашаюсь на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a></span>
+          </label>
           <button type="submit" class="btn btn-primary btn-block btn-lg" id="bookingSubmit">Отправить заявку</button>
           <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
         </form>
@@ -92,10 +96,10 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand"><img src="assets/img/logo.png" alt="Волга Рядом" class="footer-logo"><p>Премиальный глэмпинг на берегу Волги. Место, где природа встречается с комфортом.</p></div>
-    <div class="footer-col"><h4>Навигация</h4><a href="house.html">Наши домики</a><a href="what_to_do.html">Чем заняться</a><a href="booking.html">Забронировать</a><a href="contacts.html">Контакты</a></div>
+    <div class="footer-col"><h4>Навигация</h4><a href="house.html">Наши домики</a><a href="what_to_do.html">Чем заняться</a><a href="booking.html">Забронировать</a><a href="contacts.html">Контакты</a><a href="privacy.html">Политика ПДн</a></div>
     <div class="footer-col"><h4>Контакты</h4><a href="contacts.html"><span class="material-symbols-outlined">location_on</span> Самарская обл., с. Рождествено</a><a href="tel:+79178108303"><span class="material-symbols-outlined">call</span> +7 (917) 810-83-03</a><a href="https://t.me/volgaryadom" target="_blank" rel="noopener"><span class="material-symbols-outlined">send</span> Telegram</a></div>
   </div>
-  <div class="container footer-bottom">© 2024–2026 Глэмпинг «Волга Рядом». Природа, премиум, уют.</div>
+  <div class="container footer-bottom">© 2024–2026 Глэмпинг «Волга Рядом». <a href="privacy.html">Политика обработки персональных данных</a></div>
 </footer>
 <script src="assets/app.js"></script>
 </body>

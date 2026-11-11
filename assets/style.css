@@ -171,6 +171,23 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:600;line-he
 .form-note{font-size:.9rem;margin:4px 0 0;min-height:1.2em;font-weight:600}
 .form-note.ok{color:var(--green-700)}
 .form-note.err{color:var(--busy)}
+.consent{display:flex;align-items:flex-start;gap:10px;font-size:.84rem;font-weight:500;color:var(--ink);line-height:1.45;cursor:pointer}
+.consent input[type=checkbox]{margin-top:3px;width:18px;height:18px;flex-shrink:0;accent-color:var(--green-700)}
+.consent a{color:var(--green-700);text-decoration:underline}
+.consent a:hover{color:var(--green-900)}
+
+/* Политика ПДн */
+.draft-note{max-width:720px;margin:0 0 22px;padding:12px 16px;border-left:4px solid var(--wood);background:var(--sand-dark);border-radius:0 12px 12px 0;color:var(--ink);font-size:.92rem}
+.privacy-article{max-width:720px}
+.privacy-article h2{font-size:1.35rem;margin:28px 0 10px}
+.privacy-article p,.privacy-article li{font-size:.96rem}
+.privacy-article p{margin:0 0 12px}
+.privacy-article ul{margin:0 0 14px;padding-left:1.2em}
+.privacy-article li{margin:0 0 6px}
+.privacy-article a{color:var(--green-700);text-decoration:underline}
+.privacy-article a:hover{color:var(--green-900)}
+.privacy-meta{color:var(--muted);font-size:.88rem}
+.privacy-placeholder{display:inline;background:var(--sand-dark);padding:.05em .4em;border-radius:4px;font-weight:600;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em;white-space:nowrap}
 
 /* ============ ОТЗЫВЫ ============ */
 .star{color:var(--wood)}
@@ -192,6 +209,8 @@ h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:600;line-he
 .footer-col a:hover{color:#fff}
 .footer-col .material-symbols-outlined{font-size:19px;color:#8fb89a}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:34px;padding-top:20px;font-size:.84rem;color:#9db7a4}
+.footer-bottom a{color:#cfe0d2;text-decoration:underline}
+.footer-bottom a:hover{color:#fff}
 
 /* ============ АДАПТИВ ШАПКИ ============ */
 @media(max-width:880px){
