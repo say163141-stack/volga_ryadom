@@ -1,0 +1,16 @@
+# Волга Рядом — REG.RU (Apache)
+Options -Indexes
+DirectoryIndex index.html
+
+# Служебные файлы не отдаём посетителям
+<FilesMatch "(\.md|\.gs|\.sample\.php|^CNAME|\.gitignore)$">
+  Require all denied
+</FilesMatch>
+RedirectMatch 404 /\.git
+
+# После выпуска SSL (Let's Encrypt в панели REG.RU) раскомментируйте — всё на https://www.
+# (Можно вместо этого включить галочку «Перенаправлять HTTP в HTTPS» в настройках сайта в ISPmanager.)
+#RewriteEngine On
+#RewriteCond %{SERVER_PORT} !^443$ [OR]
+#RewriteCond %{HTTP_HOST} !^www\. [NC]
+#RewriteRule ^ https://www.volga-ryadom63.ru%{REQUEST_URI} [R=301,L]

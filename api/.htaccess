@@ -1,0 +1,5 @@
+# lib.php — только для подключения из других скриптов
+<Files "lib.php">
+  Require all denied
+</Files>
+Options -Indexes
